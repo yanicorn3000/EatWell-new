@@ -1,0 +1,113 @@
+/* HERO STYLES */
+
+.hero {
+  background-image: url(../assets/hero.jpg);
+  width: 100%;
+  min-height: 600px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  height: 100vh;
+
+  &::after {
+    display: block;
+    content: "";
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 17%,
+      rgba(86, 86, 86, 0.841) 50%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+    opacity: 0.8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 600px;
+  }
+}
+
+.hero__title {
+  font-size: $font-size-x-lg;
+  font-weight: 800;
+  color: $light-text-color;
+  z-index: 9;
+  text-shadow: $basic-shadow;
+  line-height: 52px;
+  max-width: 50%;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.hero__text {
+  font-size: $font-size-md;
+  z-index: 9;
+  color: $light-text-color;
+  max-width: 50%;
+  line-height: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.hero__cta {
+  background-color: $primary-color;
+  font-size: $font-size-md;
+  font-weight: 600;
+  padding: 15px 25px;
+  border-radius: $basic-border-radius;
+  color: $light-text-color;
+  z-index: 9;
+  margin-top: 20px;
+  box-shadow: $basic-shadow;
+
+  &:hover {
+    background: $primary-color;
+    background: linear-gradient(0deg, $primary-color 0%, $accent-color-1 100%);
+  }
+}
+
+.hero__button-down a {
+  position: relative;
+  padding: 5px 10px;
+  background: $muted-text-color;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+  z-index: 9;
+  margin: -2rem auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    transform: translate3d(0, 10px, 0);
+    background-color: $secondary-color;
+
+    &::after {
+      border-top: 3px solid $accent-color-1;
+      border-left: 3px solid $accent-color-1;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 11;
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    transform: rotate(225deg);
+    border-radius: 3px;
+    top: 10px;
+  }
+}

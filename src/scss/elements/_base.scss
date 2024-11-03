@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1124px;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-family: $basic-font-family;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  font-family: $basic-font-family;
+}
+body,
+html {
+  height: 100%;
+}
+
+.main {
+  min-height: 100%;
+}
