@@ -4,355 +4,87 @@ import { Routes } from "../Routes/Routes";
 import styles from "./App.module.scss";
 import "../../main.scss";
 import Header from "./header/Header";
+import Hero from "./hero/Hero";
+import Features from "./features/Feautures";
+import Example from "./example/Example";
 
 const container = document.getElementById("app");
 const root = createRoot(container);
 root.render(
-  <div>
+  <>
     <Header />
+    <Hero />
+    <Features />
+    <Example />
 
-    <main className="main">
-      <section className="hero">
-        <h1 className="hero__title">Na co masz dziś ochotę?</h1>
-        <p className="hero__text">
-          Brakuje Ci pomysłu na obiad? U nas codziennie znajdziesz tysiące
-          przepisów kulinarnych!
-        </p>
-        <a href="" className="hero__cta">
-          Załóż konto
-        </a>
-      </section>
-      <div className="hero__button-down">
-        <a href="#about"></a>
+    <section>
+      <div
+        style={{ display: "flex", justifyContent: "center", fontSize: "36px" }}
+      >
+        <h1>Kalkulator kalorii</h1>
       </div>
+    </section>
 
-      <section className="about" id="about">
-        <div className="container">
-          <h2 className="section__title">Dlaczego my?</h2>
-          <div className="about__items">
-            <div className="about__item about__item-1">
-              <h3 className="about__item-title">800 000</h3>
-              <p className="about__item-text">uzytkowników</p>
+    <section className="faq">
+      <div className="container">
+        <h2 className="section__title">FAQ</h2>
+        <div className="faq__tabs">
+          <input type="checkbox" id="faq__tab-1" />
+          <label htmlFor="faq__tab-1">Jak to działa?</label>
+
+          <div className="faq__tab">
+            <div className="faq__tab__content">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id et
+              mollitia voluptates eius voluptate quibusdam sed?
             </div>
+          </div>
 
-            <div className="about__item about__item-2">
-              <h3 className="about__item-title">10 000</h3>
-              <p className="about__item-text">przepisów</p>
+          <input type="checkbox" id="faq__tab-2" />
+          <label htmlFor="faq__tab-2">Jakie są metody płatności?</label>
+
+          <div className="faq__tab">
+            <div className="faq__tab__content">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem?
             </div>
+          </div>
 
-            <div className="about__item about__item-3">
-              <h3 className="about__item-title">
-                5<span>lat</span>
-              </h3>
-              <p className="about__item-text">na rynku</p>
+          <input type="checkbox" id="faq__tab-3" />
+          <label htmlFor="faq__tab-3">Jak załozyć konto uzytkownika?</label>
+
+          <div className="faq__tab">
+            <div className="faq__tab__content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reprehenderit qui enim illum officiis ratione quibusdam.
+            </div>
+          </div>
+
+          <input type="checkbox" id="faq__tab-4" />
+          <label htmlFor="faq__tab-4">
+            Jak zaprosić znajomych do współdzielonej listy zakupów?
+          </label>
+
+          <div className="faq__tab">
+            <div className="faq__tab__content">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id et
+              mollitia voluptates eius voluptate quibusdam sed?
+            </div>
+          </div>
+
+          <input type="checkbox" id="faq__tab-5" />
+          <label htmlFor="faq__tab-5">Jak załozyć konto twórcy?</label>
+
+          <div className="faq__tab">
+            <div className="faq__tab__content">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
+              sunt, a necessitatibus ducimus cum voluptatem commodi adipisci
+              illum doloremque aliquid tenetur at soluta saepe provident rerum
+              nemo maxime consequatur aperiam accusamus dicta!
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section className="recipes" id="recipes">
-        <div className="container">
-          <h2 className="section__title section__title-light">
-            Nasze przepisy
-          </h2>
-          <div className="recipe__items">
-            <div className="recipe__item">
-              <img
-                src="./assets/breakfast.jpg"
-                alt="breakfast bowl"
-                className="recipe__img"
-              />
-              <div className="recipe__content">
-                <div className="recipe__tags">
-                  <span className="recipe__tag tag recipe__tag-meal">
-                    śniadanie
-                  </span>
-                  <span className="recipe__tag recipe__tag-time">10 min</span>
-                  <span className="recipe__tag recipe__tag-type">fit</span>
-                </div>
-
-                <h3 className="recipe__title">Bowl z granolą i malinami</h3>
-                <p className="recipe__text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Eaque aspernatur cum earum reprehenderit, magni facere
-                  incidunt ducimus atque, esse voluptates, qui consectetur
-                  veritatis consequatur nobis. Ut culpa doloremque modi
-                  explicabo...
-                </p>
-                <a href="" className="recipe__button">
-                  Więcej
-                </a>
-              </div>
-            </div>
-
-            <div className="recipe__item">
-              <img
-                src="./assets/burger.jpg"
-                alt="breakfast bowl"
-                className="recipe__img"
-              />
-
-              <div className="recipe__content">
-                <div className="recipe__tags">
-                  <span className="recipe__tag tag recipe__tag-meal">
-                    obiad
-                  </span>
-                  <span className="recipe__tag recipe__tag-time">30 min</span>
-                  <span className="recipe__tag recipe__tag-type">
-                    fast-food
-                  </span>
-                </div>
-                <h3 className="recipe__title">Burger wołowy z frytkami</h3>
-                <p className="recipe__text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Eaque aspernatur cum earum reprehenderit, magni facere
-                  incidunt ducimus atque, esse voluptates, qui consectetur
-                  veritatis consequatur nobis. Ut culpa doloremque modi
-                  explicabo...
-                </p>
-                <a href="" className="recipe__button">
-                  Więcej
-                </a>
-              </div>
-            </div>
-
-            <div className="recipe__item">
-              <img
-                src="./assets/dinner.jpg"
-                alt="breakfast bowl"
-                className="recipe__img"
-              />
-              <div className="recipe__content">
-                <div className="recipe__tags">
-                  <span className="recipe__tag recipe__tag-meal">kolacja</span>
-                  <span className="recipe__tag recipe__tag-time">30 min</span>
-                  <span className="recipe__tag recipe__tag-type">
-                    fast-food
-                  </span>
-                </div>
-                <h3 className="recipe__title">Sałatka z frytkami</h3>
-                <p className="recipe__text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Eaque aspernatur cum earum reprehenderit, magni facere
-                  incidunt ducimus atque, esse voluptates, qui consectetur
-                  veritatis consequatur nobis. Ut culpa doloremque modi
-                  explicabo...
-                </p>
-                <a href="" className="recipe__button">
-                  Więcej
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="tags">
-        <div className="container">
-          <h2 className="section__title">Znajdź według tagów</h2>
-          <div className="tags__items">
-            <ul className="tags__items-list">
-              <li className="tags__items-single-item">
-                <a href="">śniadanie</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">obiad</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">kolacja</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">przekąski</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">deser</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">fit</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">vegan</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">wegetariańskie</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">fast-food</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">ryba</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">mięso</a>
-              </li>
-              <li className="tags__items-single-item">
-                <a href="">low-carb</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="prices" id="offer">
-        <div className="container">
-          <h2 className="section__title section__title-light">Oferta</h2>
-          <div className="prices__plan-list">
-            <input
-              type="radio"
-              name="plan"
-              value="standard"
-              id="plan_standard"
-            />
-            <label className="prices__plan" htmlFor="plan_standard">
-              <h3 className="prices__plan-title">Standard</h3>
-              <div className="prices__plan-price">
-                <h2 className="prices__plan-number">0</h2>
-              </div>
-              <ul className="prices__plan-benefits">
-                <li className="prices__plan-benefits-item">
-                  Przepisy: 10 dziennie
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Listy zakupów online
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Przepisy w ulubionych: 20
-                </li>
-              </ul>
-              <div className="prices__btn">
-                <button className="prices__btn-cta">Wybierz</button>
-              </div>
-            </label>
-
-            <input type="radio" name="plan" value="pro" id="plan_pro" />
-            <label className="prices__plan" htmlFor="plan_pro">
-              <span className="prices__plan-ribbon">Polecamy</span>
-              <h3 className="prices__plan-title">Pro</h3>
-              <div className="prices__plan-price">
-                <h2 className="prices__plan-number">58</h2>
-              </div>
-
-              <ul className="prices__plan-benefits">
-                <li className="prices__plan-benefits-item">
-                  Przepisy: 50 dziennie
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Listy zakupów online/offline
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Współdzielone listy zakupów
-                  <span className="prices__plan-benefits-item--extended">
-                    (max.4 osoby)
-                  </span>
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Przepisy w ulubionych: 100
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Kalkulator kalorii
-                </li>
-              </ul>
-              <div className="prices__btn">
-                <button className="prices__btn-cta">Wybierz</button>
-              </div>
-            </label>
-
-            <input type="radio" name="plan" value="premium" id="plan_premium" />
-            <label className="prices__plan" htmlFor="plan_premium">
-              <h3 className="prices__plan-title">Premium</h3>
-              <div className="prices__plan-price">
-                <h2 className="prices__plan-number">120</h2>
-              </div>
-              <ul className="prices__plan-benefits">
-                <li className="prices__plan-benefits-item">
-                  Przepisy: nielimitowane
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Listy zakupów online/offline
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Współdzielone listy zakupów
-                  <span className="prices__plan-benefits-item--extended">
-                    (max.10 osób)
-                  </span>
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Przepisy w ulubionych: nielimitowane
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Kalkulator kalorii
-                </li>
-                <li className="prices__plan-benefits-item">
-                  Konfigurator diety
-                </li>
-              </ul>
-              <div className="prices__btn">
-                <button className="prices__btn-cta">Wybierz</button>
-              </div>
-            </label>
-          </div>
-        </div>
-      </section>
-
-      <section className="faq">
-        <div className="container">
-          <h2 className="section__title">FAQ</h2>
-          <div className="faq__tabs">
-            <input type="checkbox" id="faq__tab-1" />
-            <label htmlFor="faq__tab-1">Jak to działa?</label>
-
-            <div className="faq__tab">
-              <div className="faq__tab__content">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id et
-                mollitia voluptates eius voluptate quibusdam sed?
-              </div>
-            </div>
-
-            <input type="checkbox" id="faq__tab-2" />
-            <label htmlFor="faq__tab-2">Jakie są metody płatności?</label>
-
-            <div className="faq__tab">
-              <div className="faq__tab__content">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem?
-              </div>
-            </div>
-
-            <input type="checkbox" id="faq__tab-3" />
-            <label htmlFor="faq__tab-3">Jak załozyć konto uzytkownika?</label>
-
-            <div className="faq__tab">
-              <div className="faq__tab__content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit qui enim illum officiis ratione quibusdam.
-              </div>
-            </div>
-
-            <input type="checkbox" id="faq__tab-4" />
-            <label htmlFor="faq__tab-4">
-              Jak zaprosić znajomych do współdzielonej listy zakupów?
-            </label>
-
-            <div className="faq__tab">
-              <div className="faq__tab__content">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id et
-                mollitia voluptates eius voluptate quibusdam sed?
-              </div>
-            </div>
-
-            <input type="checkbox" id="faq__tab-5" />
-            <label htmlFor="faq__tab-5">Jak załozyć konto twórcy?</label>
-
-            <div className="faq__tab">
-              <div className="faq__tab__content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
-                sunt, a necessitatibus ducimus cum voluptatem commodi adipisci
-                illum doloremque aliquid tenetur at soluta saepe provident rerum
-                nemo maxime consequatur aperiam accusamus dicta!
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
     <footer className="page__footer">
       <div className="container">
         <div className="footer__info">
@@ -440,5 +172,5 @@ root.render(
         </form>
       </div>
     </footer>
-  </div>
+  </>
 );

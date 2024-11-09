@@ -1,0 +1,40 @@
+@use "sass:map";
+$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+
+%container {
+  margin: 0 auto;
+  width: 1124px;
+}
+
+@mixin icon($color) {
+  @extend .fa-solid;
+  font-size: 3.5rem;
+  color: $color;
+  @content;
+}
+
+//TITLES
+
+$titles: (
+  h1: 2.2rem,
+  h2: 1.7rem,
+  h3: 1.5rem,
+  h4: 1.3rem,
+);
+
+$fonts: (
+  bold: 800,
+  standard: 400,
+  medium: 600,
+  light: 200,
+);
+
+@mixin title($size, $color, $weight) {
+  font-size: map.get($titles, $size);
+  font-weight: map.get($fonts, $weight);
+  line-height: 1.5;
+  color: $color;
+  @content;
+}

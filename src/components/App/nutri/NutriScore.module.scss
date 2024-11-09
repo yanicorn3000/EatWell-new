@@ -1,0 +1,55 @@
+@use "src/utils.scss" as *;
+@import "src/globals.scss";
+
+.title {
+  @include title(h4, $basic-text, medium);
+}
+
+.scores {
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  font-weight: 800;
+  color: $light-text;
+  flex-wrap: nowrap;
+  margin-top: 5px;
+}
+
+.score {
+  font-size: 1.2rem;
+  height: 100%;
+  padding: 8px 6px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.scoreA {
+  background-color: #01823e;
+  border-radius: 6px 0 0 6px;
+}
+
+.scoreB {
+  background-color: #86bd2b;
+}
+
+.scoreC {
+  background-color: #fecd00;
+}
+
+.scoreD {
+  background-color: #ee8201;
+}
+
+.scoreE {
+  background-color: #e73b09;
+  border-radius: 0 6px 6px 0;
+}
+
+.scoreActive {
+  font-size: 1.8rem;
+  opacity: 1;
+  border-radius: 8px;
+  z-index: 9;
+  margin-left: -2px;
+  margin-right: -2px;
+}

@@ -1,0 +1,88 @@
+@use "src/utils.scss" as *;
+@import "src/globals.scss";
+
+.about {
+  width: 100%;
+  @extend %container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 55px 20px;
+}
+
+.title {
+  @include title(h2, $basic-text, bold);
+  margin-top: 50px;
+}
+
+.items {
+  margin-top: 30px;
+  gap: 5%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+
+  .itemTitle {
+    @include title(h3, $basic-text, medium);
+  }
+
+  .itemText {
+    line-height: 1.5;
+    color: $muted-text;
+    font-size: 1rem;
+    font-weight: 200;
+  }
+
+  .pizza {
+    @include icon($primary-color) {
+      @extend .fa-pizza-slice;
+    }
+  }
+
+  .calculator {
+    @include icon($accent-color) {
+      @extend .fa-calculator;
+    }
+  }
+
+  .heart {
+    @include icon($success-color) {
+      @extend .fa-shield-heart;
+    }
+  }
+
+  .apple {
+    @include icon($warning-color) {
+      @extend .fa-apple-whole;
+    }
+  }
+
+  .check {
+    @include icon($success-color) {
+      @extend .fa-square-check;
+    }
+  }
+
+  .cart {
+    @include icon($primary-color) {
+      @extend .fa-cart-shopping;
+    }
+  }
+
+  &:hover {
+    transform: translate3d(0, -10px, 0);
+    transition: 0.2s;
+  }
+}

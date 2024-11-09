@@ -1,22 +1,19 @@
 //COLORS
 
-$background-light: #fff6ec;
-$background-dark: #4d597f;
-$basic-text: #2f4858;
+$background-light: white;
+$background-dark: #404146;
+$basic-text: #303030;
+$muted-text: #535353;
 $warning-color: #f67670;
 $success-color: #27ce7d;
-$light-text: #f0f0f0;
-$primary-color: #ff9e46;
+$light-text: white;
+$primary-color: #ff9c3f;
 $accent-color: #9667ef;
-$basic-gradient: linear-gradient(0deg, $primary-color 0%, $warning-color 100%);
+$warm-accent-color: #fecd00;
 $basic-shadow: 6px 6px 19px 0px rgb(50, 63, 72);
+
 $button-shadow: 0 3px 5px rgba(126, 126, 126, 0.457);
 
 //FONTS
 $basic-font-family: "Noto Sans", sans-serif;
 $logo-font-family: "Bebas Neue", sans-serif;
-
-%container {
-  margin: 0 auto;
-  width: 1124px;
-}

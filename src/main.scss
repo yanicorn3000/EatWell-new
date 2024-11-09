@@ -1,33 +1,22 @@
-//FONTAWESOME
+@import "_reset.scss";
+@import "_globals.scss";
 
-// // importing core styling file
-// @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-
-// // our project needs Solid + Brands
-// @import "@fortawesome/fontawesome-free/scss/solid.scss";
-// @import "@fortawesome/fontawesome-free/scss/brands.scss";
 * {
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-p {
-  //   font-family: $basic-font-family;
+body {
+  font-family: $basic-font-family;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-a {
-  text-decoration: none;
-  //   font-family: $basic-font-family;
-}
 body,
 html {
   height: 100%;
 }
 
-.main {
-  min-height: 100%;
+a {
+  text-decoration: none;
+  font-family: $basic-font-family;
 }

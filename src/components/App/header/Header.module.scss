@@ -1,3 +1,5 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
 @import "src/globals.scss";
 
 .header {
@@ -48,7 +50,7 @@
   color: $basic-text;
 
   &:hover {
-    color: $accent-color;
+    color: $success-color;
   }
 }
 
@@ -58,13 +60,13 @@
   font-size: 1rem;
   padding: 10px 25px;
   border-radius: 40px;
-  border: none;
-  background-color: $accent-color;
+  font-weight: 500;
+  border: transparent;
+  background-color: $success-color;
   color: $light-text;
   box-shadow: $button-shadow;
 
   &:hover {
-    background: $primary-color;
-    background: $basic-gradient;
+    background-color: color.scale($success-color, $lightness: -20%);
   }
 }

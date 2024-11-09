@@ -8,7 +8,7 @@ const Header = () => {
     { href: "/faq", title: "FAQ" },
   ];
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.container}>
         <a href="/" className={styles.logo}>
           Eat.Well
@@ -28,7 +28,7 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

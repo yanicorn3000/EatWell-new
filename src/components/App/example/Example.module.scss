@@ -1,0 +1,250 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.example {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  @extend %container;
+  background-color: $background-dark;
+
+  .title {
+    @include title(h2, $light-text, bold);
+    margin-top: 80px;
+    text-align: center;
+  }
+}
+
+.productCard {
+  display: flex;
+  width: 80%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: $background-light;
+  margin: 50px;
+  gap: 2%;
+  position: relative;
+
+  img {
+    width: 40%;
+    object-fit: cover;
+  }
+}
+
+.keyInfo {
+  display: grid;
+  gap: 10%;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.allergensAlert {
+  border: 1px solid $warning-color;
+  padding: 10px;
+  position: absolute;
+  font-weight: 600;
+  background-color: color.scale($warning-color, $lightness: 80%);
+  color: $warning-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border-radius: 12px;
+
+  gap: 10px;
+  max-width: 20%;
+  font-size: 0.9rem;
+  top: 0;
+  left: 20px;
+  transform: translateY(50%);
+
+  .triangle {
+    @include icon($warning-color) {
+      @extend .fa-triangle-exclamation;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.calories {
+  background-color: color.scale($warm-accent-color, $lightness: 60%);
+  padding: 10px;
+  border: 2px solid $warm-accent-color;
+  border-radius: 8px;
+  color: $muted-text;
+  display: grid;
+  grid-template-columns: 2fr auto;
+  justify-content: center;
+
+  span {
+    font-size: 1rem;
+  }
+
+  .value {
+    @include title(h2, $basic-text, medium);
+  }
+
+  .fire {
+    @include icon($primary-color) {
+      @extend .fa-fire;
+      font-size: 2rem;
+    }
+  }
+}
+
+.productScore {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  .subtitle {
+    @include title(h3, $basic-text, medium);
+  }
+
+  .text {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: $muted-text;
+    line-height: 1.5;
+    width: fit-content;
+
+    .allergens {
+      background-color: $warning-color;
+      color: $light-text;
+      font-weight: 500;
+      padding: 2px 5px;
+      border-radius: 8px;
+      width: fit-content;
+      margin-top: 5px;
+    }
+  }
+}
+
+.ingredients {
+  display: flex;
+  gap: 2%;
+  margin-top: 10px;
+}
+
+.ingredient {
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.ingredientTitle {
+  @include title(h5, $light-text, medium);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.measure {
+  font-size: 0.8rem;
+  padding: 2px 5px;
+  color: $light-text;
+  border-radius: 8px;
+}
+
+.quantity {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.high {
+  background-color: color.scale($warning-color, $lightness: 80%);
+  border: 1px solid $warning-color;
+  color: $warning-color;
+
+  .ingredientTitle {
+    color: $warning-color;
+  }
+
+  .measure {
+    background-color: $warning-color;
+  }
+}
+
+.low {
+  background-color: color.scale($success-color, $lightness: 80%);
+  border: 1px solid $success-color;
+  color: $success-color;
+
+  .ingredientTitle {
+    color: $success-color;
+  }
+
+  .measure {
+    background-color: $success-color;
+  }
+}
+
+.moderate {
+  background-color: color.scale($primary-color, $lightness: 80%);
+  border: 1px solid $primary-color;
+  color: $primary-color;
+
+  .ingredientTitle {
+    color: $primary-color;
+  }
+
+  .measure {
+    background-color: $primary-color;
+  }
+}
+
+.indicators {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2%;
+}
+
+.indicator {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: 8px 8px 12px -14px rgba(210, 210, 210, 1);
+  text-wrap: nowrap;
+
+  h5 {
+    @include title(h5, $muted-text, standard);
+  }
+}
+
+.indicatorContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.indicatorValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: $basic-text;
+}
+
+.check {
+  @include icon($success-color) {
+    @extend .fa-circle-check;
+    font-size: 1rem;
+  }
+}
+
+.exclamation {
+  @include icon($primary-color) {
+    @extend .fa-circle-exclamation;
+    font-size: 1rem;
+  }
+}

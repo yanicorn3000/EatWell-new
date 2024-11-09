@@ -1,0 +1,88 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-height: 450px;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 60%;
+
+    button {
+      top: 50%;
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      width: 80px;
+    }
+  }
+}
+
+.infoContainer {
+  width: 400px;
+  background-color: #fff;
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translate(2%, -25%);
+  padding: 20px 15px;
+  box-shadow: $basic-shadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+
+  .title {
+    @include title(h2, $basic-text, bold);
+    z-index: 9;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    z-index: 9;
+    line-height: 1.5;
+    font-weight: 500;
+    color: $muted-text;
+    text-align: center;
+  }
+
+  .cta {
+    z-index: 9;
+    text-align: center;
+    padding: 12px 25px;
+    border-radius: 40px;
+    box-shadow: $button-shadow;
+    border: transparent;
+    background-color: $primary-color;
+    color: $light-text;
+    font-weight: 500;
+    margin-top: 5px;
+
+    &:hover {
+      background-color: color.scale($primary-color, $lightness: -20%);
+    }
+  }
+}
