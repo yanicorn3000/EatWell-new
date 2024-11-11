@@ -8,9 +8,10 @@ const NutriScore = (props) => {
     <div>
       <h3 className={styles.title}>Nutri-Score</h3>
       <div className={styles.scores}>
-        {scores.map((el) => {
+        {scores.map((el, index) => {
           return (
             <div
+              key={index}
               className={clsx(styles.score, styles[`score${el}`], {
                 [styles.scoreActive]: props.score === el, // zwraca true => dodaje key do klas
               })}

@@ -1,0 +1,23 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.low {
+  color: blue;
+  font-size: 1rem;
+}
+
+.standard {
+  color: green;
+  font-size: 1.3rem;
+}
+
+.high {
+  color: orange;
+  font-size: 1.5rem;
+}
+
+.danger {
+  color: red;
+  font-size: 2rem;
+}

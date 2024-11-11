@@ -17,7 +17,7 @@ const Header = () => {
           <ul className={styles.menu}>
             {links.map(({ href, title }) => {
               return (
-                <li className={styles.menuItem}>
+                <li key={href} className={styles.menuItem}>
                   <a key={title} href={href}>
                     {title}
                   </a>

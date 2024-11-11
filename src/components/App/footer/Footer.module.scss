@@ -1,0 +1,240 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: $background-dark;
+  padding: 40px;
+  width: 100%;
+  color: $light-text;
+  align-items: center;
+  letter-spacing: 1px;
+  @extend %container;
+}
+
+.logo {
+  font-family: $logo-font-family;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2rem;
+  display: block;
+  line-height: 1;
+  color: $primary-color;
+}
+
+.info {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.contact {
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+  flex-direction: column;
+  a {
+    color: $light-text;
+
+    &:hover {
+      border-bottom: 1px solid $primary-color;
+      color: $primary-color;
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: flex-start;
+  gap: 9%;
+  align-items: center;
+  width: 100%;
+
+  a {
+    &:hover {
+      color: color.scale($primary-color, $lightness: -20%);
+    }
+  }
+}
+
+.facebook {
+  @include icon($primary-color, brands) {
+    @extend .fa-square-facebook;
+    font-size: 1.5rem;
+  }
+}
+
+.instagram {
+  @include icon($primary-color, brands) {
+    @extend .fa-square-instagram;
+    font-size: 1.5rem;
+  }
+}
+
+.tiktok {
+  @include icon($primary-color, brands) {
+    @extend .fa-tiktok;
+    font-size: 1.5rem;
+  }
+}
+
+.pinterest {
+  @include icon($primary-color, brands) {
+    @extend .fa-square-pinterest;
+    font-size: 1.5rem;
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+
+  a {
+    font-size: 1rem;
+    color: $light-text;
+    border-bottom: 1px solid transparent;
+    font-weight: 300;
+
+    &:hover {
+      border-bottom: 1px solid $primary-color;
+      color: $primary-color;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 1rem;
+  color: $primary-color;
+}
+
+.newsletter {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
+
+.email {
+  padding: 10px 112px 10px 10px;
+  background-color: $background-dark;
+  border: 1px solid $muted-text;
+  border-radius: 12px;
+  color: $light-text;
+  flex: 1 0 auto;
+  overflow: hidden;
+
+  &:focus {
+    border: 1px solid $light-text;
+  }
+
+  &:focus + .submit {
+    border: 1px solid $light-text;
+    color: $light-text;
+  }
+}
+
+.submit {
+  padding: 7px 15px;
+  background-color: $background-dark;
+  border: 1px solid $muted-text;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+  z-index: 9;
+  font-size: 0.9rem;
+  color: $muted-text;
+}
+
+.validation {
+  font-size: 0.8rem;
+  color: $warning-color;
+  font-weight: 300;
+}
+
+.correct {
+  background-color: $success-color;
+  border: 1px solid $success-color;
+  color: $light-text;
+  &:hover {
+    background-color: color.scale($success-color, $lightness: -20%);
+    border: 1px solid transparent;
+  }
+}
+
+.gdpr {
+  font-size: 0.8rem;
+  color: $muted-text;
+  font-weight: 300;
+  line-height: 1.5;
+  display: inline-block;
+  position: relative;
+  padding-left: 32px;
+  margin: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+.terms {
+  color: $light-text;
+  font-size: 0.8rem;
+  margin-left: 4px;
+
+  &:hover {
+    border-bottom: 1px solid $primary-color;
+    color: $primary-color;
+  }
+}
+
+.GDPRcheckbox {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+
+  & + label:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    vertical-align: baseline;
+    border-radius: 6px;
+    border: 1px solid $warning-color;
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+  }
+
+  &:checked + label:before {
+    content: "\f00c";
+    @extend .fa-solid;
+    @extend .fa-check;
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: $success-color;
+    border: 1px solid $success-color;
+    display: flex;
+    justify-content: center;
+  }
+}

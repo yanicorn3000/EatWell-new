@@ -82,9 +82,10 @@ const Example = () => {
           </div>
 
           <ul className={styles.ingredients}>
-            {ingredients.map((ingredient) => {
+            {ingredients.map((ingredient, index) => {
               return (
                 <li
+                  key={index}
                   className={clsx(styles.ingredient, {
                     [styles.high]: ingredient.type === "high",
                     [styles.low]: ingredient.type === "low",
@@ -103,9 +104,9 @@ const Example = () => {
             })}
           </ul>
           <ul className={styles.indicators}>
-            {indicators.map((indicator) => {
+            {indicators.map((indicator, index) => {
               return (
-                <li className={styles.indicator}>
+                <li key={index} className={styles.indicator}>
                   <h5>{indicator.title}</h5>
                   <div className={styles.indicatorContent}>
                     <p className={styles.indicatorValue}>{indicator.value}</p>
@@ -120,9 +121,10 @@ const Example = () => {
               );
             })}
           </ul>
-          <div>
-            <p>
-              <span></span>
+          <div className={styles.notifications}>
+            <h4> Wpływ na zdrowie</h4>
+            <p className={styles.notification}>
+              <span className={styles.exclamation}></span>
               Wysokie spożycie tłuszczów, zwłaszcza tłuszczów nasyconych, może
               podnieść poziom cholesterolu, co zwiększa ryzyko chorób serca.
             </p>

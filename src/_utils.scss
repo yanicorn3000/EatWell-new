@@ -2,14 +2,20 @@
 $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
 
 %container {
   margin: 0 auto;
   width: 1124px;
 }
 
-@mixin icon($color) {
-  @extend .fa-solid;
+@mixin icon($color, $type: solid) {
+  @if $type == solid {
+    @extend .fa-solid;
+  }
+  @if $type == brands {
+    @extend .fa-brands;
+  }
   font-size: 3.5rem;
   color: $color;
   @content;
@@ -18,7 +24,7 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 //TITLES
 
 $titles: (
-  h1: 2.2rem,
+  h1: 2.4rem,
   h2: 1.7rem,
   h3: 1.5rem,
   h4: 1.3rem,

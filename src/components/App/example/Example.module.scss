@@ -235,6 +235,35 @@
   color: $basic-text;
 }
 
+.notifications {
+  h4 {
+    @include title(h4, $basic-text, medium);
+  }
+}
+
+.notification {
+  border: 0.8px solid $warning-color;
+  padding: 10px 20px;
+  color: $warning-color;
+  border-radius: 8px;
+  line-height: 1.5;
+  font-weight: 500;
+  position: relative;
+  font-size: 0.9rem;
+  margin-top: 10px;
+
+  .exclamation {
+    color: $warning-color;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    background-color: $background-light;
+    border: 2px solid $background-light;
+  }
+}
+
 .check {
   @include icon($success-color) {
     @extend .fa-circle-check;

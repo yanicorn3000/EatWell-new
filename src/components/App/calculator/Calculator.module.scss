@@ -1,0 +1,33 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+  @extend %container;
+
+  .title {
+    @include title(h2, $basic-text, bold);
+  }
+}
+
+.calcForm {
+  border: 1px solid rgb(226, 226, 226);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: $button-shadow;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bmr {
+  display: flex;
+  flex-direction: column;
+}
