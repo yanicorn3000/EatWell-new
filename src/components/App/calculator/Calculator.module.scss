@@ -18,16 +18,192 @@
 
 .calcForm {
   border: 1px solid rgb(226, 226, 226);
-  padding: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 12px;
-  width: 80%;
+  max-width: 70%;
   box-shadow: $button-shadow;
+  padding: 40px;
+
+  .subtitle {
+    @include title(h4, $basic-text, medium);
+  }
+}
+
+.data {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5%;
+}
+
+.params {
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .bmr {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  .field {
+    display: flex;
+    justify-content: space-between;
+    color: $muted-text;
+    align-items: center;
+    max-width: 60%;
+
+    input {
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid $background-neutral;
+      max-width: 100px;
+    }
+  }
+}
+
+.gender {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .options {
+    display: flex;
+    gap: 20px;
+  }
+
+  .genderRadio {
+    margin: 0;
+    display: none;
+  }
+
+  .genderRadio + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid color.scale($accent-color, $lightness: 20%);
+    padding: 10px 20px;
+    color: $accent-color;
+    border-radius: 12px;
+    min-width: 170px;
+    justify-content: space-between;
+
+    &:hover {
+      transform: translate3d(0, -5px, 0);
+      transition: 0.2s;
+    }
+  }
+
+  .women {
+    @include icon($accent-color) {
+      @extend .fa-venus;
+      font-size: 2rem;
+    }
+  }
+
+  .man {
+    @include icon($accent-color) {
+      @extend .fa-mars;
+      font-size: 2rem;
+    }
+  }
+
+  .genderRadio:checked + label {
+    background-color: color.scale($accent-color, $lightness: 20%);
+    color: $light-text;
+    box-shadow: $button-shadow;
+
+    .women {
+      color: $light-text;
+    }
+
+    .man {
+      color: $light-text;
+    }
+  }
+}
+
+.result {
+  display: grid;
+  border-top: 1px solid $background-neutral;
+  margin-top: 30px;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+}
+
+.calories {
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-wrap: nowrap;
+  gap: 10px;
+  margin-top: 10px;
+  align-self: end;
+}
+
+.active {
+  border: 1px solid color.scale($success-color, $lightness: 20%);
+  color: $light-text;
+  background-color: $success-color;
+  box-shadow: $button-shadow;
+
+  .subtitle {
+    color: $light-text;
+  }
+}
+
+.inactive {
+  border: 1px solid $background-neutral;
+  color: $muted-text;
+  background-color: color.scale($background-neutral, $lightness: 20%);
+
+  .subtitle {
+    color: $muted-text;
+  }
+}
+
+.activities {
+  font-size: 0.9rem;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .activityRadio {
+    margin: 0;
+    display: none;
+  }
+
+  .activityRadio + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid $background-neutral;
+    padding: 5px 10px;
+    color: $muted-text;
+    border-radius: 12px;
+    min-height: 50px;
+    line-height: 1.2;
+
+    &:hover {
+      transform: translate3d(0, -5px, 0);
+      transition: 0.2s;
+      border: 1px solid color.scale($primary-color, $lightness: 20%);
+    }
+  }
+
+  .activityRadio:checked + label {
+    background-color: color.scale($primary-color, $lightness: 20%);
+    color: $light-text;
+    border: 1px solid color.scale($primary-color, $lightness: 20%);
+    box-shadow: $button-shadow;
+  }
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BMI from "./BMI";
 import styles from "./Calculator.module.scss";
+import clsx from "clsx";
 
 ///TODO///
 //validation
@@ -24,8 +25,8 @@ const Calculator = () => {
   };
 
   const genders = [
-    { label: "Męzczyzna", value: "male" },
-    { label: "Kobieta", value: "female" },
+    { label: "Męzczyzna", value: "male", icon: styles.man },
+    { label: "Kobieta", value: "female", icon: styles.women },
   ];
   const dailyActivity = [
     {
@@ -50,7 +51,7 @@ const Calculator = () => {
     {
       value: 2,
       label:
-        "Bardzo aktywny tryb zycia: wymagająca praca fizyczna i/lub ciękie treningi",
+        "Bardzo aktywny tryb zycia: wymagająca praca fizyczna i/lub cięzkie treningi",
     },
     {
       value: 2.4,
@@ -87,64 +88,91 @@ const Calculator = () => {
     return Math.round(bmr * activity);
   };
 
+  console.log(basicData);
+
   return (
     <section className={styles.calculator}>
       <h2 className={styles.title}> Kalkulator kalorii</h2>
       <form className={styles.calcForm}>
-        <div className={styles.genders}>
-          {genders.map((gender) => {
-            return (
-              <label key={gender.value} htmlFor={`gender-${gender.value}`}>
-                <input
-                  type="radio"
-                  {...configureInput({ name: "gender" })}
-                  value={gender.value}
-                  id={`gender-${gender.value}`}
-                />
-                {gender.label}
+        <div className={styles.data}>
+          <div className={styles.params}>
+            <div className={styles.gender}>
+              <h4 className={styles.subtitle}>Twoja płeć:</h4>
+              <ul className={styles.options}>
+                {genders.map((gender) => {
+                  return (
+                    <li key={gender.value}>
+                      <input
+                        type="radio"
+                        className={styles.genderRadio}
+                        {...configureInput({ name: "gender" })}
+                        value={gender.value}
+                        id={`gender-${gender.value}`}
+                      />
+                      <label htmlFor={`gender-${gender.value}`}>
+                        {gender.label}
+                        <span className={gender.icon}></span>
+                      </label>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div className={styles.bmr}>
+              <h4 className={styles.subtitle}>Podstawowe parametry:</h4>
+              <label htmlFor="age" className={styles.field}>
+                Twój wiek:
+                <input type="number" {...configureInput({ name: "age" })} />
               </label>
-            );
-          })}
+
+              <label htmlFor="weight" className={styles.field}>
+                Twoja waga (kg):
+                <input type="number" {...configureInput({ name: "weight" })} />
+              </label>
+              <label htmlFor="height" className={styles.field}>
+                Twój wzrost (cm):
+                <input type="number" {...configureInput({ name: "height" })} />
+              </label>
+            </div>
+          </div>
+
+          <div className={styles.activities}>
+            <h4 className={styles.subtitle}>
+              Twój poziom aktywności fizycznej:
+            </h4>
+            <ul className={styles.content}>
+              {dailyActivity.map((activity) => {
+                return (
+                  <li className={styles.activity} key={activity.value}>
+                    <input
+                      type="radio"
+                      className={styles.activityRadio}
+                      {...configureInput({ name: "activity" })}
+                      value={activity.value}
+                      id={`activity-${activity.value}`}
+                    />
+                    <label htmlFor={`activity-${activity.value}`}>
+                      {activity.label}
+                    </label>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-        <div className={styles.bmr}>
-          <label htmlFor="age">
-            Twój wiek
-            <input type="number" {...configureInput({ name: "age" })} />
-          </label>
-
-          <label htmlFor="weight">
-            Twoja waga (kg)
-            <input type="number" {...configureInput({ name: "weight" })} />
-          </label>
-          <label htmlFor="height">
-            Twój wzrost (cm)
-            <input type="number" {...configureInput({ name: "height" })} />
-          </label>
+        <div className={styles.result}>
+          <BMI weight={basicData.weight} height={basicData.height} />
+          <div
+            className={clsx(styles.calories, {
+              [styles.inactive]: calculate() === "----",
+              [styles.active]: calculate(),
+            })}
+          >
+            <p> Twoje zapotrzebowanie kaloryczne</p>
+            <h4 className={styles.subtitle}>{`${calculate()} kcal`}</h4>
+          </div>
         </div>
-
-        <ul className={styles.activities}>
-          {dailyActivity.map((activity) => {
-            return (
-              <li className={styles.activity}>
-                <label
-                  key={activity.value}
-                  htmlFor={`activity-${activity.value}`}
-                >
-                  <input
-                    type="radio"
-                    {...configureInput({ name: "activity" })}
-                    value={activity.value}
-                    id={`activity-${activity.value}`}
-                  />
-                  {activity.label}
-                </label>
-              </li>
-            );
-          })}
-        </ul>
-        <div>Twoje zapotrzebowanie: {`${calculate()} kcal`}</div>
-
-        <BMI weight={basicData.weight} height={basicData.height} />
       </form>
     </section>
   );

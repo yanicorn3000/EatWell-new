@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 const Header = () => {
@@ -10,9 +11,9 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a href="/" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           Eat.Well
-        </a>
+        </Link>
         <nav>
           <ul className={styles.menu}>
             {links.map(({ href, title }) => {
@@ -24,7 +25,9 @@ const Header = () => {
                 </li>
               );
             })}
-            <button className={styles.menuButton}>Zaloguj się</button>
+            <Link to="/login" className={styles.menuButton}>
+              Zaloguj się
+            </Link>
           </ul>
         </nav>
       </div>

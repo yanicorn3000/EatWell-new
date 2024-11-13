@@ -44,3 +44,11 @@ $fonts: (
   color: $color;
   @content;
 }
+
+@mixin input($width) {
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid $background-neutral;
+  max-width: $width;
+  @content;
+}
