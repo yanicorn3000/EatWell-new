@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { clsx } from "clsx";
-import styles from "./LoginPage.module.scss";
+import styles from "./RegisterPage.module.scss";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
@@ -51,14 +51,14 @@ const LoginPage = () => {
   return (
     <section className={styles.login}>
       <form className={styles.loginForm}>
-        <h2 className={styles.title}>Mam konto</h2>
+        <h2 className={styles.title}>Nie mam konta</h2>
         <label
           htmlFor="email"
           className={clsx(styles.inputWrapper, {
             [styles.hoveringLabel]: email,
           })}
         >
-          <span className={styles.inputLabel}>Login</span>
+          <span className={styles.inputLabel}>Nowy login</span>
 
           <input
             type="email"
@@ -75,9 +75,27 @@ const LoginPage = () => {
             [styles.hoveringLabel]: password,
           })}
         >
-          <span className={styles.inputLabel}>Hasło</span>
+          <span className={styles.inputLabel}>Nowe hasło</span>
           <input
             type="password"
+            value={password}
+            className={styles.loginInput}
+            onChange={onChangePassword}
+          />
+          {errors.password && (
+            <p className={styles.validation}>{errors.password}</p>
+          )}
+        </label>
+
+        <label
+          htmlFor="password-repeat"
+          className={clsx(styles.inputWrapper, {
+            [styles.hoveringLabel]: password,
+          })}
+        >
+          <span className={styles.inputLabel}>Powtórz hasło</span>
+          <input
+            type="password-repeat"
             value={password}
             className={styles.loginInput}
             onChange={onChangePassword}
@@ -92,12 +110,12 @@ const LoginPage = () => {
           className={styles.loginButton}
           onClick={handleLogin}
         >
-          Zaloguj się
+          Załóz konto
         </button>
-        <Link to="/register">Nie masz konta? Zarejestruj się </Link>
+        <Link to="/login">Masz juz konto? Zaloguj się</Link>
       </form>
     </section>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

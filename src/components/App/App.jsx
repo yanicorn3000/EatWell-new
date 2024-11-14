@@ -8,8 +8,8 @@ import Hero from "./hero/Hero";
 import Features from "./features/Feautures";
 import Example from "./example/Example";
 import Footer from "./footer/Footer";
-import FAQ from "./faq/FAQ";
 import Calculator from "./calculator/Calculator";
+import FAQ from "./FAQ/FAQ";
 
 const container = document.getElementById("app");
 const root = createRoot(container);

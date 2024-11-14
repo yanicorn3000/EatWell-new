@@ -3,7 +3,7 @@ import Header from "../components/App/header/Header";
 import Footer from "../components/App/footer/Footer";
 import "../main.scss";
 
-function Layout(props) {
+const Layout = (props) => {
   return (
     <>
       <Header />
@@ -11,6 +11,6 @@ function Layout(props) {
       <Footer />
     </>
   );
-}
+};
 
 export default Layout;
