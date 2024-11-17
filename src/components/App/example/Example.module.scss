@@ -20,17 +20,29 @@
 
 .productCard {
   display: flex;
-  width: 80%;
+  width: 70%;
   border-radius: 12px;
   overflow: hidden;
   background-color: $background-light;
   margin: 50px;
   gap: 2%;
-  position: relative;
+}
+
+.picture {
+  width: 30%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
 
   img {
-    width: 40%;
     object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+    max-height: 190px;
+    object-position: 50% 50%;
   }
 }
 
@@ -44,7 +56,6 @@
 .allergensAlert {
   border: 1px solid $warning-color;
   padding: 10px;
-  position: absolute;
   font-weight: 600;
   background-color: color.scale($warning-color, $lightness: 80%);
   color: $warning-color;
@@ -53,13 +64,8 @@
   justify-content: center;
   line-height: 1;
   border-radius: 12px;
-
   gap: 10px;
-  max-width: 20%;
   font-size: 0.9rem;
-  top: 0;
-  left: 20px;
-  transform: translateY(50%);
 
   .triangle {
     @include icon($warning-color) {
@@ -96,9 +102,10 @@
 }
 
 .productScore {
-  padding: 20px;
+  padding: 20px 20px 20px 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 20px;
   width: 100%;
 
@@ -107,7 +114,6 @@
   }
 
   .text {
-    font-size: 0.9rem;
     margin-top: 5px;
     color: $muted-text;
     line-height: 1.5;
@@ -157,7 +163,7 @@
 
 .quantity {
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .high {
@@ -203,20 +209,17 @@
 }
 
 .indicators {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2%;
-}
-
-.indicator {
   display: flex;
   gap: 5px;
   flex-direction: column;
+  width: 100%;
+}
+
+.indicator {
   padding: 5px;
   border-radius: 8px;
   border: 1px solid rgb(226, 226, 226);
   box-shadow: 8px 8px 12px -14px $background-neutral;
-  text-wrap: nowrap;
 
   h5 {
     @include title(h5, $muted-text, standard);
@@ -249,8 +252,7 @@
   line-height: 1.5;
   font-weight: 500;
   position: relative;
-  font-size: 0.9rem;
-  margin-top: 10px;
+  margin-top: 20px;
 
   .exclamation {
     color: $warning-color;
@@ -267,13 +269,13 @@
 .check {
   @include icon($success-color) {
     @extend .fa-circle-check;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
 .exclamation {
   @include icon($primary-color) {
     @extend .fa-circle-exclamation;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }

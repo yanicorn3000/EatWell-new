@@ -39,7 +39,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className={styles.faq}>
+    <section className={styles.faq} id="faq">
       <h3 className={styles.title}>FAQ</h3>
       <ul className={styles.tabs}>
         {tabs.map(({ id, label, content }) => {

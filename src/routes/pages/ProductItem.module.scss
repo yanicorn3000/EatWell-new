@@ -1,0 +1,25 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.productItem {
+  background: linear-gradient(
+    180deg,
+    $accent-color 60%,
+    hsla(0, 0%, 100%, 1) 100%
+  );
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  border: 1px solid $background-neutral;
+  margin-bottom: 20px;
+  margin-top: 130px;
+  border-radius: 12px;
+  box-shadow: $button-shadow;
+  padding: 40px;
+}

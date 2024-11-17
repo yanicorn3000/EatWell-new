@@ -1,0 +1,12 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.pulpit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @extend %container;
+}

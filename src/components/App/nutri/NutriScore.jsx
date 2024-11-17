@@ -3,17 +3,26 @@ import styles from "./NutriScore.module.scss";
 
 const scores = ["A", "B", "C", "D", "E"];
 
-const NutriScore = (props) => {
+const NutriScore = ({ size, score }) => {
+  const sizeValue = size || "medium";
+
   return (
     <div>
-      <h3 className={styles.title}>Nutri-Score</h3>
-      <div className={styles.scores}>
+      {sizeValue !== "small" ? (
+        <h3 className={styles.title}>Nutri-Score</h3>
+      ) : null}
+      <div
+        className={clsx(styles.scores, {
+          [styles.small]: sizeValue === "small",
+        })}
+      >
         {scores.map((el, index) => {
           return (
             <div
               key={index}
-              className={clsx(styles.score, styles[`score${el}`], {
-                [styles.scoreActive]: props.score === el, // zwraca true => dodaje key do klas
+              className={clsx(styles.score, {
+                [styles.scoreActive]: score === el,
+                [styles[`score${el}`]]: score !== "UNKNOWN",
               })}
             >
               {el}

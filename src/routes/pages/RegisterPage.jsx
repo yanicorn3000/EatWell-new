@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 import { clsx } from "clsx";
 import styles from "./RegisterPage.module.scss";
 
+//TODO
+//walidacja
+
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
+
   const [errors, setErrors] = useState({ email: "", password: "" });
 
   const validateEmailField = (value) => {
@@ -48,6 +53,14 @@ const RegisterPage = () => {
     });
   };
 
+  const onChangePasswordRepeat = (e) => {
+    setPasswordRepeat(e.target.value);
+    setErrors({
+      ...errors,
+      password: validatePasswordField(e.target.value),
+    });
+  };
+
   return (
     <section className={styles.login}>
       <form className={styles.loginForm}>
@@ -65,6 +78,7 @@ const RegisterPage = () => {
             value={email}
             className={styles.loginInput}
             onChange={onChangeEmail}
+            name="email"
           />
           {errors.email && <p className={styles.validation}>{errors.email}</p>}
         </label>
@@ -81,6 +95,7 @@ const RegisterPage = () => {
             value={password}
             className={styles.loginInput}
             onChange={onChangePassword}
+            name="password"
           />
           {errors.password && (
             <p className={styles.validation}>{errors.password}</p>
@@ -90,15 +105,16 @@ const RegisterPage = () => {
         <label
           htmlFor="password-repeat"
           className={clsx(styles.inputWrapper, {
-            [styles.hoveringLabel]: password,
+            [styles.hoveringLabel]: passwordRepeat,
           })}
         >
           <span className={styles.inputLabel}>Powtórz hasło</span>
           <input
-            type="password-repeat"
-            value={password}
+            type="password"
+            value={passwordRepeat}
             className={styles.loginInput}
-            onChange={onChangePassword}
+            onChange={onChangePasswordRepeat}
+            name="password-repeat"
           />
           {errors.password && (
             <p className={styles.validation}>{errors.password}</p>

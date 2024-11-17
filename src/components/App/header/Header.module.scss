@@ -70,3 +70,45 @@
     background-color: color.scale($success-color, $lightness: -20%);
   }
 }
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.userAccount {
+  @include icon($success-color) {
+    @extend .fa-circle-user;
+    font-size: 2.2rem;
+  }
+  &:hover {
+    color: color.scale($success-color, $lightness: -20%);
+  }
+}
+
+.logOut {
+  height: 100%;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-weight: 500;
+  border: transparent;
+  background-color: $primary-color;
+  color: $light-text;
+  box-shadow: $button-shadow;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: color.scale($primary-color, $lightness: -20%);
+  }
+}
+
+.userLogOut {
+  @include icon($light-text) {
+    @extend .fa-arrow-right-from-bracket;
+    font-size: 1rem;
+  }
+}

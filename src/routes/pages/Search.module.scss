@@ -1,0 +1,50 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.search {
+  background: linear-gradient(
+    180deg,
+    $accent-color 60%,
+    hsla(0, 0%, 100%, 1) 100%
+  );
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  .title {
+    @include title(h2, $light-text, bold);
+  }
+}
+
+.wrapper {
+  width: 60%;
+  position: relative;
+}
+
+.searchBar {
+  @include input(100%, $background-neutral) {
+    padding: 15px 25px;
+    color: $muted-text;
+  }
+}
+
+.searchButton {
+  position: absolute;
+  padding: 10px 20px;
+  background-color: $success-color;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transform: translate(-50%, 52%);
+  bottom: 25px;
+  right: -50px;
+  color: $light-text;
+
+  &:hover {
+    background-color: color.scale($success-color, $lightness: -20%);
+  }
+}

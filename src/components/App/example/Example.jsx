@@ -2,7 +2,7 @@ import styles from "./Example.module.scss";
 import NutriScore from "../nutri/NutriScore";
 import clsx from "clsx";
 
-const Example = () => {
+export const Card = (props) => {
   const ingredients = [
     {
       title: "Tłuszcz",
@@ -41,96 +41,107 @@ const Example = () => {
   ];
 
   return (
+    <div className={clsx(styles.productCard, props.className)}>
+      <div className={styles.picture}>
+        <img src={props.product.picture} alt="migdały" />
+        <div className={styles.allergensAlert}>
+          <span className={styles.triangle}></span>
+          <p>Ten produkt zawiera alergeny</p>
+        </div>
+        <ul className={styles.indicators}>
+          {indicators.map((indicator, index) => {
+            return (
+              <li key={index} className={styles.indicator}>
+                <h5>{indicator.title}</h5>
+                <div className={styles.indicatorContent}>
+                  <p className={styles.indicatorValue}>{indicator.value}</p>
+                  <span
+                    className={clsx({
+                      [styles.check]: indicator.type === "positive",
+                      [styles.exclamation]: indicator.type === "negative",
+                    })}
+                  ></span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div className={styles.productScore}>
+        <div>
+          <h3 className={styles.subtitle}>{props.product.name}</h3>
+          <div className={styles.text}>
+            <p>
+              <span>Składniki:</span> Kalifornijskie migdały całe, łuskane
+            </p>
+            <div className={styles.allergens}>
+              <p>
+                <span>ALERGENY:</span> orzechy
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.keyInfo}>
+          <NutriScore score="A" />
+
+          <div className={styles.calories}>
+            <h2 className={styles.value}>
+              621<span>kcal</span>
+            </h2>
+            <div className={styles.fire}></div>
+            <p className={styles.text}>Wartość energetyczna w 100g </p>
+          </div>
+        </div>
+
+        <ul className={styles.ingredients}>
+          {ingredients.map((ingredient, index) => {
+            return (
+              <li
+                key={index}
+                className={clsx(styles.ingredient, {
+                  [styles.high]: ingredient.type === "high",
+                  [styles.low]: ingredient.type === "low",
+                  [styles.moderate]: ingredient.type === "moderate",
+                })}
+              >
+                <div>
+                  <h4 className={styles.ingredientTitle}>{ingredient.title}</h4>
+                  <span className={styles.measure}>{ingredient.value}</span>
+                </div>
+                <p className={styles.quantity}>{ingredient.description}</p>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className={styles.notifications}>
+          <h4> Wpływ na zdrowie</h4>
+          <p className={styles.notification}>
+            <span className={styles.exclamation}></span>
+            Wysokie spożycie tłuszczów, zwłaszcza tłuszczów nasyconych, może
+            podnieść poziom cholesterolu, co zwiększa ryzyko chorób serca.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Example = () => {
+  return (
     <section className={styles.example}>
       <h2 className={styles.title}>
         Jak wygląda przykładowa analiza produktu?
       </h2>
 
-      <div className={styles.productCard}>
-        <img src="/assets/almonds.png" />
-
-        <div className={styles.allergensAlert}>
-          <span className={styles.triangle}></span>
-          <p>Ten produkt zawiera alergeny</p>
-        </div>
-
-        <div className={styles.productScore}>
-          <div>
-            <h3 className={styles.subtitle}>Migdały</h3>
-            <div className={styles.text}>
-              <p>
-                <span>Składniki:</span> Kalifornijskie migdały całe, łuskane
-              </p>
-              <div className={styles.allergens}>
-                <p>
-                  <span>ALERGENY:</span> orzechy
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.keyInfo}>
-            <NutriScore score="A" />
-
-            <div className={styles.calories}>
-              <h2 className={styles.value}>
-                621<span>kcal</span>
-              </h2>
-              <div className={styles.fire}></div>
-              <p className={styles.text}>Wartość energetyczna w 100g </p>
-            </div>
-          </div>
-
-          <ul className={styles.ingredients}>
-            {ingredients.map((ingredient, index) => {
-              return (
-                <li
-                  key={index}
-                  className={clsx(styles.ingredient, {
-                    [styles.high]: ingredient.type === "high",
-                    [styles.low]: ingredient.type === "low",
-                    [styles.moderate]: ingredient.type === "moderate",
-                  })}
-                >
-                  <div>
-                    <h4 className={styles.ingredientTitle}>
-                      {ingredient.title}
-                    </h4>
-                    <span className={styles.measure}>{ingredient.value}</span>
-                  </div>
-                  <p className={styles.quantity}>{ingredient.description}</p>
-                </li>
-              );
-            })}
-          </ul>
-          <ul className={styles.indicators}>
-            {indicators.map((indicator, index) => {
-              return (
-                <li key={index} className={styles.indicator}>
-                  <h5>{indicator.title}</h5>
-                  <div className={styles.indicatorContent}>
-                    <p className={styles.indicatorValue}>{indicator.value}</p>
-                    <span
-                      className={clsx({
-                        [styles.check]: indicator.type === "positive",
-                        [styles.exclamation]: indicator.type === "negative",
-                      })}
-                    ></span>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-          <div className={styles.notifications}>
-            <h4> Wpływ na zdrowie</h4>
-            <p className={styles.notification}>
-              <span className={styles.exclamation}></span>
-              Wysokie spożycie tłuszczów, zwłaszcza tłuszczów nasyconych, może
-              podnieść poziom cholesterolu, co zwiększa ryzyko chorób serca.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Card
+        product={{
+          picture: "/assets/almonds.png",
+          name: "Migdały",
+        }}
+      />
     </section>
   );
 };

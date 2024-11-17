@@ -1,13 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { clsx } from "clsx";
+import { useUser } from "../../utils";
 import styles from "./LoginPage.module.scss";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
+  const user = useUser();
+  // const navigate = useNavigate();
 
   const validateEmailField = (value) => {
     if (!value) {
@@ -29,7 +31,13 @@ const LoginPage = () => {
     newErrors.password = validatePasswordField(password);
 
     setErrors(newErrors);
-    console.log(email, password, { ...errors });
+
+    const hasErrors = Object.values(newErrors).filter(Boolean).length;
+
+    if (!hasErrors) {
+      user.login(email, password);
+      // navigate("/pulpit");
+    }
   };
 
   const onChangeEmail = (e) => {
@@ -65,6 +73,7 @@ const LoginPage = () => {
             value={email}
             className={styles.loginInput}
             onChange={onChangeEmail}
+            name="email"
           />
           {errors.email && <p className={styles.validation}>{errors.email}</p>}
         </label>
@@ -81,6 +90,7 @@ const LoginPage = () => {
             value={password}
             className={styles.loginInput}
             onChange={onChangePassword}
+            name="password"
           />
           {errors.password && (
             <p className={styles.validation}>{errors.password}</p>

@@ -48,7 +48,7 @@ const Features = () => {
   ];
 
   return (
-    <section className={styles.about}>
+    <section className={styles.about} id="about">
       <h2 className={styles.title}>Dlaczego warto wybrać EatWell?</h2>
       <ul className={styles.items}>
         {items.map((item, index) => {

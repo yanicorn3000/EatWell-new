@@ -91,7 +91,7 @@ const Calculator = () => {
   console.log(basicData);
 
   return (
-    <section className={styles.calculator}>
+    <section className={styles.calculator} id="calculator">
       <h2 className={styles.title}> Kalkulator kalorii</h2>
       <form className={styles.calcForm}>
         <div className={styles.data}>
