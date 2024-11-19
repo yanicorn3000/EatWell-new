@@ -44,7 +44,10 @@ const ProductList = ({ searchTerm }) => {
                   score={item.nutriscore_grade.toUpperCase()}
                   size="small"
                 />
-                <Link to={`/product/${item.id}`} className={styles.listButton}>
+                <Link
+                  to={`/product/${item.code}`}
+                  className={styles.listButton}
+                >
                   Wybierz<span className={styles.chevronRight}></span>
                 </Link>
               </div>

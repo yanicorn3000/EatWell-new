@@ -23,3 +23,26 @@
   box-shadow: $button-shadow;
   padding: 40px;
 }
+
+.back {
+  padding: 10px 20px;
+  background-color: $accent-color;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  color: $light-text;
+  margin-bottom: 50px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  &:hover {
+    background-color: color.scale($accent-color, $lightness: -20%);
+  }
+}
+
+.chevronLeft {
+  @include icon($light-text) {
+    @extend .fa-chevron-left;
+    font-size: 1rem;
+  }
+}

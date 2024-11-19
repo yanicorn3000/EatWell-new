@@ -87,6 +87,7 @@
 
   span {
     font-size: 1rem;
+    margin-left: 2px;
   }
 
   .value {
@@ -138,7 +139,7 @@
 }
 
 .ingredient {
-  border: 1px solid grey;
+  border: 1px solid $background-neutral;
   border-radius: 8px;
   padding: 10px;
   display: flex;
@@ -146,19 +147,25 @@
   gap: 20px;
   width: 100%;
   justify-content: space-between;
+  color: $muted-text;
 }
 
 .ingredientTitle {
-  @include title(h5, $light-text, medium);
+  @include title(h5, $muted-text, medium);
   margin-bottom: 10px;
   line-height: 1;
 }
 
 .measure {
   font-size: 0.8rem;
-  padding: 2px 5px;
+  padding: 5px;
   color: $light-text;
   border-radius: 8px;
+  background-color: $background-neutral;
+  width: fit-content;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .quantity {
@@ -208,74 +215,54 @@
   }
 }
 
-.indicators {
+.analysis {
   display: flex;
-  gap: 5px;
-  flex-direction: column;
-  width: 100%;
+  gap: 2%;
 }
 
-.indicator {
-  padding: 5px;
+.tag {
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid rgb(226, 226, 226);
   box-shadow: 8px 8px 12px -14px $background-neutral;
+  width: 100%;
+  color: $muted-text;
 
   h5 {
-    @include title(h5, $muted-text, standard);
+    @include title(h5, $muted-text, medium);
   }
 }
 
-.indicatorContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.tagContent {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  width: 100%;
+  gap: 5px;
 
-.indicatorValue {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: $basic-text;
-}
-
-.notifications {
-  h4 {
-    @include title(h4, $basic-text, medium);
+  .measure {
+    background-color: $warm-accent-color;
   }
-}
 
-.notification {
-  border: 0.8px solid $warning-color;
-  padding: 10px 20px;
-  color: $warning-color;
-  border-radius: 8px;
-  line-height: 1.5;
-  font-weight: 500;
-  position: relative;
-  margin-top: 20px;
-
-  .exclamation {
-    color: $warning-color;
+  .icon {
     font-size: 1.5rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-50%, -50%);
-    background-color: $background-light;
-    border: 2px solid $background-light;
+    justify-self: end;
   }
 }
 
-.check {
-  @include icon($success-color) {
-    @extend .fa-circle-check;
-    font-size: 1.5rem;
+.up {
+  @include icon($warm-accent-color) {
+    @extend .fa-circle-arrow-up;
   }
 }
 
-.exclamation {
-  @include icon($primary-color) {
-    @extend .fa-circle-exclamation;
-    font-size: 1.5rem;
+.down {
+  @include icon($warm-accent-color) {
+    @extend .fa-circle-arrow-down;
+  }
+}
+
+.empty {
+  @include icon($background-neutral) {
+    @extend .fa-ban;
   }
 }

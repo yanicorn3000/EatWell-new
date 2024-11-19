@@ -34,7 +34,15 @@ export const queryClient = new QueryClient({
 });
 
 const mapProduct = (product) => {
-  const { product_name_pl, product_name_en, product_name, ...rest } = product;
+  const {
+    product_name_pl,
+    product_name_en,
+    product_name,
+    added_countries_tags, //zbędne tagi
+    compared_to_category, //zbędne tagi
+    informers_tags, //zbędne tagi
+    ...rest
+  } = product;
 
   return {
     ...rest,
