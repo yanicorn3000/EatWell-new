@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./Search.module.scss";
-import ProductList from "./ProductList";
 
 const Search = ({ setSearchTerm }) => {
   const [query, setQuery] = useState("");

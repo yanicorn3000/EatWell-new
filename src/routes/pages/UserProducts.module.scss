@@ -1,0 +1,26 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.myProducts {
+  background: linear-gradient(
+    180deg,
+    $accent-color 60%,
+    hsla(0, 0%, 100%, 1) 100%
+  );
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  @extend %container;
+}
+
+.title {
+  @include title(h2, $light-text, bold);
+  margin: 130px 0 70px 0;
+  width: 100%;
+  text-align: center;
+}

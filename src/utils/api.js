@@ -102,3 +102,29 @@ export const useProduct = (id) => {
     },
   });
 };
+
+export const useCategoryProducts = (category) => {
+  return useQuery({
+    queryKey: ["category", category],
+    queryFn: async () => {
+      let products;
+
+      try {
+        const response = await fetchFromAPI(
+          `https://pl.openfoodfacts.org/api/v2/search?categories_tags=${category}`
+        );
+
+        if (response.products.length === 0) {
+          throw "Nie mamy takiego produktu";
+        }
+
+        products = response.products;
+      } catch (e) {
+        console.log(e);
+        throw e;
+      }
+
+      return products.map(mapProduct).filter((product) => product.product_name);
+    },
+  });
+};

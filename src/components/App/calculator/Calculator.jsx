@@ -46,12 +46,12 @@ const Calculator = () => {
     {
       value: 1.7,
       label:
-        "Aktywny tryb zycia: treningi 2-3x razy tygodniowo i praca fizyczna",
+        "Aktywny tryb zycia: treningi 2-3x razy tygodniowo lub wymagająca praca fizyczna",
     },
     {
       value: 2,
       label:
-        "Bardzo aktywny tryb zycia: wymagająca praca fizyczna i/lub cięzkie treningi",
+        "Bardzo aktywny tryb zycia: bardzo wymagająca praca fizyczna i/lub cięzkie treningi",
     },
     {
       value: 2.4,

@@ -7,7 +7,10 @@ const Header = () => {
   const user = useUser();
 
   const links = user.isLoggedIn
-    ? [{ href: "/list", title: "Twoje produkty" }]
+    ? [
+        { href: "/pulpit", title: "Wyszukiwarka" },
+        { href: "/user/products", title: "Moje produkty" },
+      ]
     : [
         { href: "#about", title: "O nas" },
         { href: "#calculator", title: "Kalkulator kalorii" },
@@ -32,7 +35,7 @@ const Header = () => {
             })}
             {user.isLoggedIn ? (
               <div className={styles.buttonGroup}>
-                <Link to="/pulpit" className={styles.userAccount}></Link>
+                <Link to="/user" className={styles.userAccount}></Link>
                 <Link to="/" className={styles.logOut} onClick={user.logout}>
                   Wyloguj<span className={styles.userLogOut}></span>
                 </Link>

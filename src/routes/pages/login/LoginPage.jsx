@@ -1,18 +1,15 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { clsx } from "clsx";
-import styles from "./RegisterPage.module.scss";
+import { useUser } from "../../../utils";
+import styles from "./LoginPage.module.scss";
 
-//TODO
-//walidacja
-
-const RegisterPage = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordRepeat, setPasswordRepeat] = useState("");
-
   const [errors, setErrors] = useState({ email: "", password: "" });
+  const user = useUser();
+  // const navigate = useNavigate();
 
   const validateEmailField = (value) => {
     if (!value) {
@@ -34,7 +31,13 @@ const RegisterPage = () => {
     newErrors.password = validatePasswordField(password);
 
     setErrors(newErrors);
-    console.log(email, password, { ...errors });
+
+    const hasErrors = Object.values(newErrors).filter(Boolean).length;
+
+    if (!hasErrors) {
+      user.login(email, password);
+      // navigate("/pulpit");
+    }
   };
 
   const onChangeEmail = (e) => {
@@ -53,25 +56,17 @@ const RegisterPage = () => {
     });
   };
 
-  const onChangePasswordRepeat = (e) => {
-    setPasswordRepeat(e.target.value);
-    setErrors({
-      ...errors,
-      password: validatePasswordField(e.target.value),
-    });
-  };
-
   return (
     <section className={styles.login}>
       <form className={styles.loginForm}>
-        <h2 className={styles.title}>Nie mam konta</h2>
+        <h2 className={styles.title}>Mam konto</h2>
         <label
           htmlFor="email"
           className={clsx(styles.inputWrapper, {
             [styles.hoveringLabel]: email,
           })}
         >
-          <span className={styles.inputLabel}>Nowy login</span>
+          <span className={styles.inputLabel}>Login</span>
 
           <input
             type="email"
@@ -89,7 +84,7 @@ const RegisterPage = () => {
             [styles.hoveringLabel]: password,
           })}
         >
-          <span className={styles.inputLabel}>Nowe hasło</span>
+          <span className={styles.inputLabel}>Hasło</span>
           <input
             type="password"
             value={password}
@@ -102,36 +97,19 @@ const RegisterPage = () => {
           )}
         </label>
 
-        <label
-          htmlFor="password-repeat"
-          className={clsx(styles.inputWrapper, {
-            [styles.hoveringLabel]: passwordRepeat,
-          })}
-        >
-          <span className={styles.inputLabel}>Powtórz hasło</span>
-          <input
-            type="password"
-            value={passwordRepeat}
-            className={styles.loginInput}
-            onChange={onChangePasswordRepeat}
-            name="password-repeat"
-          />
-          {errors.password && (
-            <p className={styles.validation}>{errors.password}</p>
-          )}
-        </label>
-
         <button
           type="submit"
           className={styles.loginButton}
           onClick={handleLogin}
         >
-          Załóz konto
+          Zaloguj się
         </button>
-        <Link to="/login">Masz juz konto? Zaloguj się</Link>
+        <Link to="/register" className={styles.link}>
+          Nie masz konta? Zarejestruj się{" "}
+        </Link>
       </form>
     </section>
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

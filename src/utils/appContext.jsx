@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext } from "react";
+import { useLocalStorageState } from "./localStorage";
 
 const appContext = createContext({
   user: {
@@ -6,29 +7,21 @@ const appContext = createContext({
     login: () => {},
     logout: () => {},
   },
+  userProducts: undefined,
 });
 
 const USER_LS_KEY = "user_data";
-
-const getUserData = () => {
-  try {
-    const userData = localStorage.getItem(USER_LS_KEY);
-    return JSON.parse(userData);
-  } catch (e) {
-    return undefined;
-  }
-};
+const USER_PRODUCTS_LS_KEY = "user_products_data";
 
 export const AppContextProvider = (props) => {
-  const [userData, setUserData] = useState(getUserData());
+  const [userData, setUserData] = useLocalStorageState(USER_LS_KEY);
+  const [userProducts, setUserProducts] = useLocalStorageState(
+    USER_PRODUCTS_LS_KEY,
+    []
+  );
 
-  useEffect(() => {
-    if (userData) {
-      localStorage.setItem(USER_LS_KEY, JSON.stringify(userData));
-    } else {
-      localStorage.removeItem(USER_LS_KEY);
-    }
-  }, [userData]);
+  const findProduct = (product) =>
+    userProducts.find((p) => p.code === product.code);
 
   return (
     <appContext.Provider
@@ -48,6 +41,23 @@ export const AppContextProvider = (props) => {
             setUserData(undefined);
           },
         },
+        userProducts: userData
+          ? {
+              data: userProducts,
+              add: (product) => {
+                const hasProduct = findProduct(product);
+                !hasProduct
+                  ? setUserProducts([...userProducts, product])
+                  : alert("Ten produkt juz jest na liście zapisanych");
+              },
+              remove: (productCode) => {
+                setUserProducts(
+                  userProducts.filter((p) => p.code !== productCode)
+                );
+              },
+              findProduct,
+            }
+          : undefined,
       }}
     >
       {props.children}
@@ -62,4 +72,10 @@ export const useUser = () => {
     ...user,
     isLoggedIn: Boolean(user.data),
   };
+};
+
+export const useUserProducts = () => {
+  const { userProducts } = useContext(appContext);
+
+  return userProducts;
 };

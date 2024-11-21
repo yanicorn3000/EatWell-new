@@ -2,22 +2,6 @@
 @use "sass:color";
 @import "src/globals.scss";
 
-.example {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  @extend %container;
-  background-color: $background-dark;
-
-  .title {
-    @include title(h2, $light-text, bold);
-    margin-top: 80px;
-    text-align: center;
-  }
-}
-
 .productCard {
   display: flex;
   width: 70%;
@@ -68,7 +52,6 @@
   align-items: flex-start;
   width: 100%;
 
-  button,
   a {
     padding: 10px 15px;
     width: 100%;
@@ -80,6 +63,10 @@
     gap: 4%;
     text-wrap: nowrap;
     font-weight: 500;
+
+    &.disabled {
+      pointer-events: none;
+    }
   }
 
   .saveButton {
@@ -88,7 +75,7 @@
 
     .save {
       @include icon($light-text) {
-        @extend .fa-bookmark;
+        @extend .fa-star;
         font-size: 1rem;
       }
     }

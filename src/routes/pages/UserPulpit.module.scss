@@ -5,8 +5,9 @@
 .pulpit {
   width: 100%;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   @extend %container;
 }

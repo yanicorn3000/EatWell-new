@@ -86,3 +86,17 @@
     font-size: 1rem;
   }
 }
+
+.removeFromList {
+  @include icon($success-color) {
+    @extend .fa-star;
+    font-size: 1.5rem;
+  }
+}
+
+.addToList {
+  @include icon($success-color, regular) {
+    @extend .fa-star;
+    font-size: 1.5rem;
+  }
+}
