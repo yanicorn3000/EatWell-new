@@ -9,12 +9,73 @@
     hsla(0, 0%, 100%, 1) 100%
   );
   width: 100%;
-  min-height: 500px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
 
-  height: 100vh;
+  .title {
+    @include title(h2, $light-text, bold);
+    margin-top: 130px;
+  }
+}
+
+.wrapper {
+  border: 1px solid $background-neutral;
+  margin-bottom: 50px;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: $button-shadow;
+  padding: 40px;
+  background-color: $background-light;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.userName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+  gap: 10px;
+  width: 100%;
+  margin: 20px auto;
+
+  .name {
+    @include title(h4, $basic-text, medium);
+  }
+}
+
+.nameInput {
+  border: 1px solid $background-neutral;
+  padding: 8px 15px;
+  color: $muted-text;
+  border-radius: 6px;
+  width: 80%;
+}
+
+.button {
+  padding: 10px 30px;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  background-color: $success-color;
+  color: $light-text;
+  box-shadow: $button-shadow;
+  align-self: center;
+
+  &:hover {
+    background-color: color.scale($success-color, $lightness: -20%);
+  }
 }

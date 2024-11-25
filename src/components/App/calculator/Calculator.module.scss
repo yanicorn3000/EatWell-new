@@ -16,6 +16,10 @@
   }
 }
 
+.subtitle {
+  @include title(h4, $basic-text, medium);
+}
+
 .calcForm {
   border: 1px solid $background-neutral;
   margin-top: 30px;
@@ -23,10 +27,6 @@
   max-width: 70%;
   box-shadow: $button-shadow;
   padding: 40px;
-
-  .subtitle {
-    @include title(h4, $basic-text, medium);
-  }
 }
 
 .data {
@@ -168,7 +168,6 @@
 }
 
 .activities {
-  font-size: 0.9rem;
   .content {
     display: flex;
     flex-direction: column;
@@ -187,7 +186,7 @@
     cursor: pointer;
     position: relative;
     border: 1px solid $background-neutral;
-    padding: 5px 10px;
+    padding: 5px 15px;
     color: $muted-text;
     border-radius: 12px;
     min-height: 50px;

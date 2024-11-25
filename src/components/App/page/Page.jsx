@@ -1,4 +1,5 @@
 import React from "react";
+import Spinner from "../spinner/Spinner";
 
 const Page = ({ children, loading, error }) => {
   if (error) {
@@ -6,11 +7,7 @@ const Page = ({ children, loading, error }) => {
   }
 
   if (loading) {
-    return (
-      <div>
-        <p>Trwa ładowanie...</p>
-      </div>
-    );
+    return <Spinner />;
   }
 
   return children();

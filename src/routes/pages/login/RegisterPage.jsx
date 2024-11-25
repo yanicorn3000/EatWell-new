@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 import { clsx } from "clsx";
 import styles from "./LoginPage.module.scss";
 
-//TODO
-//walidacja
-
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
 
-  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    passwordRepeat: "",
+  });
 
   const validateEmailField = (value) => {
     if (!value) {
@@ -26,15 +27,22 @@ const RegisterPage = () => {
     }
   };
 
+  const validatePasswordRepeat = (value) => {
+    if (value != password) {
+      return "Hasła muszą być takie same";
+    }
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const newErrors = { ...errors };
 
     newErrors.email = validateEmailField(email);
     newErrors.password = validatePasswordField(password);
+    newErrors.passwordRepeat = validatePasswordRepeat(passwordRepeat);
 
     setErrors(newErrors);
-    console.log(email, password, { ...errors });
+    console.log(email, password, passwordRepeat, { ...errors });
   };
 
   const onChangeEmail = (e) => {
@@ -57,7 +65,7 @@ const RegisterPage = () => {
     setPasswordRepeat(e.target.value);
     setErrors({
       ...errors,
-      password: validatePasswordField(e.target.value),
+      passwordRepeat: validatePasswordRepeat(e.target.value),
     });
   };
 
@@ -116,8 +124,8 @@ const RegisterPage = () => {
             onChange={onChangePasswordRepeat}
             name="password-repeat"
           />
-          {errors.password && (
-            <p className={styles.validation}>{errors.password}</p>
+          {errors.passwordRepeat && (
+            <p className={styles.validation}>{errors.passwordRepeat}</p>
           )}
         </label>
 
