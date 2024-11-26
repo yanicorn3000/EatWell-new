@@ -79,3 +79,8 @@
     background-color: color.scale($success-color, $lightness: -20%);
   }
 }
+
+.error {
+  color: $warning-color;
+  font-size: 0.8rem;
+}

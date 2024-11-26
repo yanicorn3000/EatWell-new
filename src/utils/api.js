@@ -8,12 +8,15 @@ import {
 } from "@tanstack/react-query";
 import { data } from "./sample";
 
-const fetchFromAPI = async (url) => {
+export const fetchFromAPI = async (url, options = {}) => {
   try {
     const req = await fetch(url, {
+      ...options,
       headers: {
         accept: "application/json",
+        ...options.headers,
       },
+      body: JSON.stringify(options.body),
     });
 
     const response = await req.json();

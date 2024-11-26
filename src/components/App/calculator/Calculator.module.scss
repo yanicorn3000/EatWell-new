@@ -52,6 +52,7 @@
     justify-content: space-between;
     color: $muted-text;
     align-items: center;
+    gap: 20px;
     max-width: 60%;
 
     input {
@@ -205,4 +206,9 @@
     border: 1px solid color.scale($primary-color, $lightness: 20%);
     box-shadow: $button-shadow;
   }
+}
+
+.error {
+  color: $warning-color;
+  font-size: 0.8rem;
 }

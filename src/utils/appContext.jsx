@@ -1,11 +1,13 @@
 import { createContext, useContext } from "react";
 import { useLocalStorageState } from "./localStorage";
+import { getUsers, updateUser } from "./users";
 
 const appContext = createContext({
   user: {
     data: undefined,
     login: () => {},
     logout: () => {},
+    update: () => {},
   },
   userProducts: undefined,
 });
@@ -28,14 +30,28 @@ export const AppContextProvider = (props) => {
       value={{
         user: {
           data: userData,
-          login: (email, password) => {
-            if (email === "test@test.pl" && password === "test") {
-              setUserData({
-                firstName: "Andrzej",
-                lastName: "Rakieta",
-                email,
-              });
+          login: async (email, password) => {
+            const users = await getUsers();
+
+            const user = users.find(
+              (u) => u.email === email && u.password === password
+            );
+
+            if (!user) {
+              throw new Error("User not found");
             }
+
+            setUserData(user);
+          },
+          update: async (newData) => {
+            await updateUser(userData.id, {
+              ...userData,
+              ...newData,
+            });
+            setUserData({
+              ...userData,
+              ...newData,
+            });
           },
           logout: () => {
             setUserData(undefined);

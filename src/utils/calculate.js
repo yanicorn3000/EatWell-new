@@ -8,7 +8,7 @@ const countBMRwomen = (age, weight, height) => {
   return Math.round(BMRwomen);
 };
 
-export const calculate = (basicData) => {
+export const calculate = (basicData = {}) => {
   const { age, weight, height, gender, activity } = basicData;
   let bmr = 0;
 

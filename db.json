@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "test@test.pl",
+      "password": "test",
+      "name": "John",
+      "gender": "female",
+      "age": "23",
+      "weight": "46",
+      "height": "156",
+      "activity": "1.5"
+    },
+    {
+      "id": "2",
+      "email": "test2@test2.pl",
+      "password": "test"
+    }
+  ]
+}

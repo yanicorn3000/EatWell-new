@@ -4,9 +4,12 @@ import styles from "./Card.module.scss";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import { useUserProducts } from "../../../utils";
+import { calculate } from "../../../utils/calculate";
+import { useUser } from "../../../utils";
 
 const Card = (props) => {
   const userProducts = useUserProducts();
+  const user = useUser();
 
   return (
     <div className={clsx(styles.productCard, props.className)}>
@@ -20,8 +23,15 @@ const Card = (props) => {
             </div>
           ) : null}
           <div className={styles.userData}>
-            <h5>Twoje zapotrzebowanie kaloryczne:</h5>
-            <span></span>
+            <div className={styles.userCalories}>
+              <span className={styles.userIcon}></span>
+              <h2 className={styles.value}>
+                {calculate(user.data)}
+                <span>kcal</span>
+              </h2>
+            </div>
+
+            <p>Twoje dzienne zapotrzebowanie kaloryczne</p>
           </div>
         </div>
         <div className={styles.buttonGroup}>

@@ -43,6 +43,33 @@
   padding: 10px;
   color: $muted-text;
   font-size: 0.9rem;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.userCalories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .value {
+    @include title(h3, $basic-text, medium);
+
+    span {
+      font-size: 0.9rem;
+      margin-left: 2px;
+    }
+  }
+}
+
+.userIcon {
+  @include icon($accent-color) {
+    @extend .fa-user;
+    font-size: 1.3rem;
+  }
 }
 
 .buttonGroup {

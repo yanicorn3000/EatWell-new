@@ -2,12 +2,21 @@ import React from "react";
 import { useState } from "react";
 import styles from "./UserData.module.scss";
 import CalculatorForm from "../../components/App/calculator/CalculatorForm";
-import { calculate } from "../../utils/calculate";
+import { useUser } from "../../utils";
 
 const wordRegex = /^[a-zA-Z]+$/;
 
 const UserData = () => {
-  const [basicData, setBasicData] = useState({});
+  const user = useUser();
+
+  const [basicData, setBasicData] = useState({
+    name: user.data.name,
+    gender: user.data.gender,
+    age: user.data.age,
+    weight: user.data.weight,
+    height: user.data.height,
+    activity: user.data.activity,
+  });
   const [errors, setErrors] = useState({});
 
   const configureInput = ({ name, validate }) => {
@@ -29,29 +38,26 @@ const UserData = () => {
     };
   };
 
-  console.log(errors);
-
   const checkName = (value) => {
     if (!value || value === undefined) {
       return "To pole nie moze być puste";
     }
 
-    console.log(wordRegex);
     if (!wordRegex.test(value)) {
       return "Wartość musi zawierać tylko litery";
     }
   };
 
   const showError = (name) => {
-    return errors[name] ? <p style={{ color: "red" }}>{errors[name]}</p> : null;
+    return errors[name] ? <p className={styles.error}>{errors[name]}</p> : null;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault(e);
-    console.log(calculate(basicData));
+    user.update(basicData);
+    alert("Twoje dane zostały zapisane ✅");
   };
 
-  console.log(basicData);
   return (
     <section className={styles.data}>
       <h2 className={styles.title}>Twój profil</h2>
@@ -78,6 +84,7 @@ const UserData = () => {
           <CalculatorForm
             className={styles.userForm}
             configureInput={configureInput}
+            errors={errors}
           />
         </div>
         <button className={styles.button} onClick={handleSubmit}>

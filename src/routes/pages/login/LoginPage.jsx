@@ -35,7 +35,11 @@ const LoginPage = () => {
     const hasErrors = Object.values(newErrors).filter(Boolean).length;
 
     if (!hasErrors) {
-      user.login(email, password);
+      user.login(email, password).catch((error) => {
+        setErrors({
+          email: "Niepoprawny login lub hasło",
+        });
+      });
       // navigate("/pulpit");
     }
   };
