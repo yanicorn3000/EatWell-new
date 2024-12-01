@@ -84,3 +84,8 @@
   color: $warning-color;
   font-size: 0.8rem;
 }
+
+.disabled {
+  background-color: $background-neutral;
+  pointer-events: none;
+}

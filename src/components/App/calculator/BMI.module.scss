@@ -7,7 +7,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-self: end;
+  width: 100%;
+  @include media(large) {
+    align-self: end;
+  }
 }
 
 .content {

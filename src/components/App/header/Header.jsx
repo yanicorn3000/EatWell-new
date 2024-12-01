@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../../../utils";
 import styles from "./Header.module.scss";
+import HamburgerMenu from "./HamburgerMenu";
+import Navigation from "./Navigation";
 
 const Header = () => {
   const user = useUser();
@@ -22,31 +24,12 @@ const Header = () => {
         <Link to="/">
           <h1 className={styles.logo}>Eat.Well</h1>
         </Link>
-        <nav>
-          <ul className={styles.menu}>
-            {links.map(({ href, title }) => {
-              return (
-                <li key={href} className={styles.menuItem}>
-                  <a key={title} href={href}>
-                    {title}
-                  </a>
-                </li>
-              );
-            })}
-            {user.isLoggedIn ? (
-              <div className={styles.buttonGroup}>
-                <Link to="/user" className={styles.userAccount}></Link>
-                <Link to="/" className={styles.logOut} onClick={user.logout}>
-                  Wyloguj<span className={styles.userLogOut}></span>
-                </Link>
-              </div>
-            ) : (
-              <Link to="/login" className={styles.menuButton}>
-                Zaloguj się
-              </Link>
-            )}
-          </ul>
-        </nav>
+        <HamburgerMenu links={links} user={user} />
+        <Navigation
+          links={links}
+          user={user}
+          className={styles.desktopNavigation}
+        />
       </div>
     </header>
   );

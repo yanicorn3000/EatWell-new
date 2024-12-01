@@ -8,9 +8,13 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 80px 0;
+  margin: 30px 0;
   padding: 20px;
   @extend %container;
+
+  @include media(large) {
+    margin: 80px 0;
+  }
 }
 
 .title {
@@ -21,7 +25,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 30px;
   gap: 10px;
   align-items: center;
   justify-content: center;
@@ -34,7 +38,11 @@
   margin-top: 10px;
   justify-content: flex-start;
   overflow: hidden;
-  width: 60%;
+  width: 100%;
+
+  @include media(large) {
+    width: 60%;
+  }
 
   .FAQcheckbox {
     margin: 0;

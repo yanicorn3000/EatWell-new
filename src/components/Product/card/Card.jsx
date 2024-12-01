@@ -59,17 +59,13 @@ const Card = (props) => {
       </div>
 
       <div className={styles.productScore}>
-        <div>
+        <div className={styles.scoreHeader}>
           <h3 className={styles.subtitle}>{props.product.name}</h3>
           <div className={styles.text}>
-            <p>
-              <span>Składniki:</span> {props.product.ingredients}
-            </p>
+            <span>Składniki:</span> {props.product.ingredients}
             {props.product.allergens ? (
               <div className={styles.allergens}>
-                <p>
-                  <span>ALERGENY:</span> {props.product.allergens}
-                </p>
+                <span>ALERGENY:</span> {props.product.allergens}
               </div>
             ) : null}
           </div>

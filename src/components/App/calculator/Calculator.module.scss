@@ -8,8 +8,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 80px 0;
+  margin: 30px 0;
   @extend %container;
+
+  @include media(large) {
+    margin: 80px 0;
+  }
 
   .title {
     @include title(h2, $basic-text, bold);
@@ -18,21 +22,36 @@
 
 .subtitle {
   @include title(h4, $basic-text, medium);
+  text-align: center;
+  @include media(large) {
+    text-align: left;
+  }
 }
 
 .calcForm {
   border: 1px solid $background-neutral;
   margin-top: 30px;
   border-radius: 12px;
-  max-width: 70%;
+  max-width: 80%;
   box-shadow: $button-shadow;
-  padding: 40px;
+  padding: 20px;
+
+  @include media(large) {
+    padding: 40px;
+  }
 }
 
 .data {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+
+  @include media(large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5%;
+  }
 }
 
 .params {
@@ -52,8 +71,13 @@
     justify-content: space-between;
     color: $muted-text;
     align-items: center;
-    gap: 20px;
-    max-width: 60%;
+    gap: 10px;
+    max-width: 100%;
+
+    @include media(large) {
+      max-width: 60%;
+      gap: 20px;
+    }
 
     input {
       padding: 5px;
@@ -67,11 +91,22 @@
 .gender {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 15px;
 
   .options {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
+    @include media(medium) {
+      flex-direction: row;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    @include media(large) {
+      justify-content: flex-start;
+    }
   }
 
   .genderRadio {
@@ -88,8 +123,11 @@
     padding: 10px 20px;
     color: $accent-color;
     border-radius: 12px;
-    min-width: 170px;
     justify-content: space-between;
+    min-width: 50px;
+    @include media(medium) {
+      min-width: 170px;
+    }
 
     &:hover {
       transform: translate3d(0, -5px, 0);
@@ -127,24 +165,41 @@
 }
 
 .result {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid $background-neutral;
   margin-top: 30px;
   width: 100%;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
+
+  @include media(large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5%;
+  }
 }
 
 .calories {
-  padding: 10px 20px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  text-wrap: nowrap;
+  flex-direction: column;
+  padding: 10px 20px;
+  border-radius: 12px;
+  justify-content: center;
   gap: 10px;
   margin-top: 10px;
-  align-self: end;
+  text-wrap: wrap;
+  text-align: center;
+  line-height: 1.5;
+  width: 100%;
+
+  @include media(large) {
+    flex-direction: row;
+    text-wrap: nowrap;
+    justify-content: space-between;
+    align-self: end;
+  }
 }
 
 .active {
@@ -169,6 +224,11 @@
 }
 
 .activities {
+  margin-top: 20px;
+
+  @include media(large) {
+    margin-top: 0;
+  }
   .content {
     display: flex;
     flex-direction: column;

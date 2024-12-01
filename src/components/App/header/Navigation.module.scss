@@ -1,0 +1,114 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  height: 100%;
+}
+
+.menuItem a {
+  font-size: 1.1rem;
+  color: $basic-text;
+
+  &:hover {
+    color: $success-color;
+  }
+}
+
+.menuButton {
+  height: 100%;
+  margin-left: 26px;
+  font-size: 1rem;
+  padding: 10px 25px;
+  border-radius: 40px;
+  font-weight: 500;
+  border: transparent;
+  background-color: $success-color;
+  color: $light-text;
+  box-shadow: $button-shadow;
+
+  &:hover {
+    background-color: color.scale($success-color, $lightness: -20%);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.userAccount {
+  @include icon($success-color) {
+    @extend .fa-circle-user;
+    font-size: 2.2rem;
+  }
+  &:hover {
+    color: color.scale($success-color, $lightness: -20%);
+  }
+}
+
+.logOut {
+  height: 100%;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-weight: 500;
+  border: transparent;
+  background-color: $primary-color;
+  color: $light-text;
+  box-shadow: $button-shadow;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: color.scale($primary-color, $lightness: -20%);
+  }
+}
+
+.userLogOut {
+  @include icon($light-text) {
+    @extend .fa-arrow-right-from-bracket;
+    font-size: 1rem;
+  }
+}
+
+.vertical {
+  .menu {
+    flex-direction: column;
+    margin-top: 10px;
+    flex-flow: column-reverse;
+    padding: 40px;
+    gap: 50px;
+  }
+
+  .menuItem a {
+    font-size: 1.2rem;
+  }
+
+  .menuButton {
+    font-size: 1.2rem;
+  }
+  .buttonGroup {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .userAccount {
+    font-size: 3rem;
+  }
+
+  .userLogOut {
+    font-size: 1.4rem;
+  }
+
+  .logOut {
+    font-size: 1.2rem;
+  }
+}

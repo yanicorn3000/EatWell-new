@@ -1,0 +1,67 @@
+@use "src/utils.scss" as *;
+@use "sass:color";
+@import "src/globals.scss";
+
+.hamburgerMenu {
+  position: relative;
+  @include media(large) {
+    display: none;
+  }
+}
+
+.shade {
+  display: none;
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+
+  @include media(large) {
+    display: none;
+  }
+}
+
+.shade.open {
+  display: block;
+
+  @include media(large) {
+    display: none;
+  }
+}
+
+.hamburgerNavigation {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: $light-text;
+  right: 0;
+  transform: translateX(110%);
+  transition: transform 1s linear;
+  box-shadow: $basic-shadow;
+  z-index: 999;
+
+  @include media(large) {
+    display: none;
+  }
+}
+
+.hamburgerNavigation.open {
+  transform: translateX(0);
+}
+
+.hamburger {
+  @include icon($basic-text) {
+    @extend .fa-bars;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+}

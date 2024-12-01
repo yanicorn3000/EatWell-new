@@ -1,6 +1,5 @@
-// import React, { useState, useEffect } from "react";
 import styles from "./Features.module.scss";
-// import clsx from "clsx";
+import clsx from "clsx";
 
 const Features = () => {
   const items = [
@@ -54,8 +53,9 @@ const Features = () => {
         {items.map((item, index) => {
           return (
             <li key={index} className={styles.item}>
-              <div className={item.icon}></div>
+              <span className={clsx(styles.icon, item.icon)}></span>
               <h3 className={styles.itemTitle}>{item.title}</h3>
+
               <p className={styles.itemText}>{item.description}</p>
             </li>
           );

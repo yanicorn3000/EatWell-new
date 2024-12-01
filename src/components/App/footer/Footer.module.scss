@@ -3,15 +3,27 @@
 @import "src/globals.scss";
 
 .footer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   background: $background-dark;
   padding: 40px;
   width: 100%;
   color: $light-text;
-  align-items: center;
   letter-spacing: 1px;
   @extend %container;
+
+  @include media(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  @include media(large) {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
 }
 
 .logo {
@@ -92,9 +104,9 @@
 .links {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-top: 20px;
   gap: 20px;
+  justify-content: center;
 
   a {
     font-size: 1rem;

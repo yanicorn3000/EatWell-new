@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Example.module.scss";
 import Card from "../../Product/card/Card";
 

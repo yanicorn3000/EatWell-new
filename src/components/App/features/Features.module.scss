@@ -3,25 +3,45 @@
 
 .about {
   width: 100%;
-  @extend %container;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px 55px 20px;
+  padding: 10px 20px;
+  text-align: center;
+  @extend %container;
+  @include media(large) {
+    padding: 40px 20px 55px 20px;
+  }
 }
 
 .title {
   @include title(h2, $basic-text, bold);
-  margin-top: 50px;
+  margin-top: 40px;
+  @include media(large) {
+    margin-top: 50px;
+  }
 }
 
 .items {
-  margin-top: 30px;
-  gap: 5%;
+  margin: 30px 0;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include media(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2%;
+  }
+
+  @include media(large) {
+    margin: 40px 0 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+  }
 }
 
 .item {
@@ -29,10 +49,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 25px;
+  gap: 10px;
   position: relative;
   text-align: center;
-  padding: 10px;
+  height: 100%;
+  margin-top: 20px;
+
+  @include media(large) {
+    gap: 25px;
+  }
 
   .itemTitle {
     @include title(h3, $basic-text, medium);
@@ -43,6 +68,13 @@
     color: $muted-text;
     font-size: 1rem;
     font-weight: 200;
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    @include media(large) {
+      font-size: 3.5rem;
+    }
   }
 
   .pizza {

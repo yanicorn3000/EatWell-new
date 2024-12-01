@@ -4,29 +4,56 @@
 
 .productCard {
   display: flex;
-  width: 70%;
+  flex-direction: column-reverse;
+  padding: 20px;
+  width: 80%;
   border-radius: 12px;
   overflow: hidden;
   background-color: $background-light;
-  margin: 50px;
-  gap: 2%;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @include media(large) {
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 10px;
+  }
 }
 
 .pictureColumn {
-  width: 30%;
+  width: 100%;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  justify-content: space-between;
+  gap: 20px;
+
+  @include media(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+  }
+
+  @include media(large) {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+  }
 
   img {
-    object-fit: cover;
-    width: 100%;
-    border-radius: 12px;
-    max-height: 190px;
-    object-position: 50% 50%;
+    display: none;
+
+    @include media(large) {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 12px;
+      max-height: 190px;
+      object-position: 50% 50%;
+    }
   }
 }
 
@@ -87,7 +114,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 4%;
+    gap: 10px;
     text-wrap: nowrap;
     font-weight: 500;
 
@@ -123,10 +150,16 @@
 }
 
 .keyInfo {
-  display: grid;
-  gap: 10%;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   align-items: center;
+
+  @include media(large) {
+    display: grid;
+    gap: 10%;
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .allergensAlert {
@@ -160,6 +193,7 @@
   display: grid;
   grid-template-columns: 2fr auto;
   justify-content: center;
+  width: 100%;
 
   span {
     font-size: 1rem;
@@ -179,39 +213,82 @@
 }
 
 .productScore {
-  padding: 20px 20px 20px 0;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
   width: 100%;
+  gap: 20px;
+  flex-direction: column;
+
+  @include media(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @include media(large) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+  }
 
   .subtitle {
     @include title(h3, $basic-text, medium);
   }
 
+  .scoreHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media(medium) {
+      align-items: flex-start;
+      justify-items: flex-start;
+      gap: 2%;
+    }
+
+    @include media(large) {
+      gap: 10px;
+    }
+  }
   .text {
     margin-top: 5px;
     color: $muted-text;
     line-height: 1.5;
     width: fit-content;
+  }
 
-    .allergens {
-      background-color: $warning-color;
-      color: $light-text;
-      font-weight: 500;
-      padding: 2px 5px;
-      border-radius: 8px;
+  .allergens {
+    background-color: $warning-color;
+    color: $light-text;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+
+    @include media(medium) {
       width: fit-content;
-      margin-top: 5px;
     }
   }
 }
 
 .ingredients {
   display: flex;
-  gap: 2%;
-  margin-top: 10px;
+  gap: 10px;
+  flex-direction: column;
+
+  @include media(medium) {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media(large) {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+  }
 }
 
 .ingredient {
@@ -293,7 +370,14 @@
 
 .analysis {
   display: flex;
-  gap: 2%;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+
+  @include media(large) {
+    flex-direction: row;
+    gap: 2%;
+  }
 }
 
 .tag {

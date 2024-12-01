@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./UserData.module.scss";
 import CalculatorForm from "../../components/App/calculator/CalculatorForm";
 import { useUser } from "../../utils";
+import clsx from "clsx";
 
 const wordRegex = /^[a-zA-Z]+$/;
 
@@ -58,6 +59,8 @@ const UserData = () => {
     alert("Twoje dane zostały zapisane ✅");
   };
 
+  console.log(errors);
+
   return (
     <section className={styles.data}>
       <h2 className={styles.title}>Twój profil</h2>
@@ -87,7 +90,13 @@ const UserData = () => {
             errors={errors}
           />
         </div>
-        <button className={styles.button} onClick={handleSubmit}>
+        <button
+          className={clsx(styles.button, {
+            [styles.disabled]:
+              errors.name || errors.height || errors.age || errors.weight,
+          })}
+          onClick={handleSubmit}
+        >
           Zapisz
         </button>
       </div>

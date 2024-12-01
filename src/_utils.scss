@@ -22,7 +22,7 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
   @if $type == brands {
     @extend .fa-brands;
   }
-  font-size: 3.5rem;
+
   color: $color;
   @content;
 }
@@ -57,4 +57,17 @@ $fonts: (
   border: 1px solid $color;
   width: $width;
   @content;
+}
+
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  extra-large: 1200px,
+);
+
+@mixin media($size, $direction: min) {
+  @media screen and (#{$direction}-width: map.get($breakpoints,$size)) {
+    @content;
+  }
 }
