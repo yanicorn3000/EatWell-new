@@ -12,7 +12,11 @@
 
   .title {
     @include title(h2, $light-text, bold);
-    margin-top: 80px;
+    margin-top: 30px;
     text-align: center;
+
+    @include media(large) {
+      margin-top: 80px;
+    }
   }
 }

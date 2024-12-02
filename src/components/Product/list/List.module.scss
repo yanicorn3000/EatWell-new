@@ -9,8 +9,12 @@
   border-radius: 12px;
   width: 80%;
   box-shadow: $button-shadow;
-  padding: 40px;
+  padding: 20px;
   background-color: $background-light;
+
+  @include media(large) {
+    padding: 40px;
+  }
 }
 
 .products {
@@ -20,14 +24,27 @@
 }
 .product {
   display: flex;
+  flex-direction: column;
   border: 1px solid $background-neutral;
   background-color: $background-light;
   border-radius: 8px;
-  padding-right: 20px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2%;
   line-height: 1;
+  padding: 20px;
+
+  @include media(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+
+  @include media(large) {
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2%;
+  }
 }
 
 .productName {
@@ -36,26 +53,41 @@
 
 .productWrapper {
   display: flex;
-  gap: 20px;
+  justify-content: center;
   align-items: center;
+
+  @include media(large) {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }
 
 .image {
-  width: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
+  display: none;
+  @include media(large) {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
 }
 
 .imgWrapper {
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  overflow: hidden;
-  border-radius: 8px 0 0 8px;
-  background-color: $background-neutral;
-  flex-shrink: 0;
+  display: none;
+
+  @include media(large) {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    overflow: hidden;
+    border-radius: 8px 0 0 8px;
+    background-color: $background-neutral;
+    flex-shrink: 0;
+  }
 }
 
 .listButton {
@@ -75,9 +107,15 @@
 
 .optionsWrapper {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include media(large) {
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 
 .chevronRight {

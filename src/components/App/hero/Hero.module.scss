@@ -20,6 +20,7 @@
     object-fit: cover;
     overflow: hidden;
     max-height: 100px;
+
     @include media(large) {
       max-height: 100%;
     }

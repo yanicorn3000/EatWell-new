@@ -9,12 +9,16 @@
     hsla(0, 0%, 100%, 1) 100%
   );
   width: 100%;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
+
+  @include media(large) {
+    min-height: 500px;
+  }
 
   .title {
     @include title(h2, $light-text, bold);
@@ -22,8 +26,11 @@
 }
 
 .wrapper {
-  width: 60%;
+  width: 80%;
   position: relative;
+  @include media(large) {
+    width: 60%;
+  }
 }
 
 .searchBar {
@@ -39,12 +46,21 @@
   background-color: $success-color;
   border-radius: 8px;
   border: 1px solid transparent;
-  transform: translate(-50%, 52%);
-  bottom: 25px;
-  right: -50px;
   color: $light-text;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  transform: translate(-50%, 130%);
+
+  @include media(large) {
+    position: absolute;
+    transform: translate(-50%, 52%);
+    bottom: 25px;
+    left: 90%;
+    right: -50px;
+  }
 
   &:hover {
-    bac: color.scale($success-color, $lightness: -20%);
+    background-color: color.scale($success-color, $lightness: -20%);
   }
 }

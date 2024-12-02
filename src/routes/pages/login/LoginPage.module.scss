@@ -21,8 +21,12 @@
   justify-content: center;
   padding: 30px 10px;
   gap: 15px;
-  width: 50%;
+  width: 80%;
   border-radius: 20px;
+
+  @include media(large) {
+    width: 50%;
+  }
 
   .title {
     @include title(h2, $basic-text, bold);
@@ -34,7 +38,11 @@
   border: 1px solid $background-neutral;
   border-radius: 12px;
   color: $muted-text;
-  width: 300px;
+  width: 250px;
+
+  @include media(medium) {
+    width: 300px;
+  }
 }
 
 .loginButton {

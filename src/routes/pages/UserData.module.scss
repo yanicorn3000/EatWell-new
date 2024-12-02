@@ -47,10 +47,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   max-width: 600px;
   gap: 10px;
   width: 100%;
   margin: 20px auto;
+
+  @include media(large) {
+    align-items: flex-start;
+  }
 
   .name {
     @include title(h4, $basic-text, medium);
@@ -62,7 +67,11 @@
   padding: 8px 15px;
   color: $muted-text;
   border-radius: 6px;
-  width: 80%;
+  width: 100%;
+
+  @include media(medium) {
+    width: 80%;
+  }
 }
 
 .button {
