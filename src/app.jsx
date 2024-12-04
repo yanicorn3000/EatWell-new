@@ -11,7 +11,9 @@ const root = createRoot(container);
 root.render(
   <QueryClientProvider client={queryClient}>
     <AppContextProvider>
-      <BrowserRouter>
+      <BrowserRouter
+        basename={import.meta.env.PROD ? "/EatWell-new" : undefined}
+      >
         <Layout>
           <Routes />
         </Layout>
