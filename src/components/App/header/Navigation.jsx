@@ -14,9 +14,9 @@ const Navigation = ({ links, user, variant, className }) => {
         {links.map(({ href, title }) => {
           return (
             <li key={href} className={styles.menuItem}>
-              <a key={title} href={href}>
+              <Link key={title} to={href}>
                 {title}
-              </a>
+              </Link>
             </li>
           );
         })}
