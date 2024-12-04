@@ -1,6 +1,6 @@
 import styles from "./Hero.module.scss";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../link/Link";
 
 const images = ["assets/6.png", "assets/5.png", "assets/2.png"];
 

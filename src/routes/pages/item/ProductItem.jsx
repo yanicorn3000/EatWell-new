@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./ProductItem.module.scss";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "../../../components/App/link/Link";
 import { useProduct } from "../../../utils";
 import Card from "../../../components/Product/card/Card";
 import { formatProductData } from "../../../utils/product";

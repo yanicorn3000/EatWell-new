@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from "./List.module.scss";
 import NutriScore from "../nutri/NutriScore";
-import { useUser, useUserProducts } from "../../../utils";
+import { useUserProducts } from "../../../utils";
+import { Link } from "../../App/link/Link";
 
 const List = ({ products }) => {
   const userProducts = useUserProducts();

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../link/Link";
 import { useUser } from "../../../utils";
 import styles from "./Header.module.scss";
 import HamburgerMenu from "./HamburgerMenu";

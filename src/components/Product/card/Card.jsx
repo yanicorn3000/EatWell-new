@@ -2,7 +2,7 @@ import React from "react";
 import NutriScore from "../nutri/NutriScore";
 import styles from "./Card.module.scss";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link } from "../../App/link/Link";
 import { useUserProducts } from "../../../utils";
 import { calculate } from "../../../utils/calculate";
 import { useUser } from "../../../utils";

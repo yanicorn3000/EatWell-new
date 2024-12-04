@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../../../components/App/link/Link";
 import { clsx } from "clsx";
 import styles from "./LoginPage.module.scss";
 

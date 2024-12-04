@@ -4,7 +4,7 @@ import { useProduct, useCategoryProducts } from "../../../utils";
 import List from "../../../components/Product/list/List";
 import Page from "../../../components/App/page/Page";
 import styles from "./SimilarProducts.module.scss";
-import { Link } from "react-router-dom";
+import { Link } from "../../../components/App/link/Link";
 
 const SimilarProducts = () => {
   let { id } = useParams();

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Navigation.module.scss";
-import { Link } from "react-router-dom";
+import { Link } from "../link/Link";
 import { clsx } from "clsx";
 
 const Navigation = ({ links, user, variant, className }) => {

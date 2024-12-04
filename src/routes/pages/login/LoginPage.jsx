@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import { Link } from "../../../components/App/link/Link";
 import { clsx } from "clsx";
 import { useUser } from "../../../utils";
 import styles from "./LoginPage.module.scss";
