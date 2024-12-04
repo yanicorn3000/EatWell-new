@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig((config) => ({
   base: config.mode === "production" ? "/EatWell-new" : "/",
@@ -7,14 +8,17 @@ export default defineConfig((config) => ({
   server: {
     port: 3000,
   },
-  plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler",
-      },
-    },
-  },
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "assets/",
+          dest: "",
+        },
+      ],
+    }),
+  ],
   build: {
     outDir: "../dist",
   },

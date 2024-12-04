@@ -1,7 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { Routes } from "../Routes/Routes";
-import styles from "./App.module.scss";
 import "../../main.scss";
 import Header from "./header/Header";
 import Hero from "./hero/Hero";
@@ -9,7 +7,7 @@ import Features from "./features/Feautures";
 import Example from "./example/Example";
 import Footer from "./footer/Footer";
 import Calculator from "./calculator/Calculator";
-import FAQ from "./FAQ/FAQ";
+import FAQ from "./faq/FAQ";
 
 const container = document.getElementById("app");
 const root = createRoot(container);

@@ -1,6 +1,6 @@
-@use "src/utils.scss" as *;
+@use "../../../utils.scss" as *;
 @use "sass:color";
-@import "src/globals.scss";
+@import "../../../globals.scss";
 
 .login {
   height: 100vh;

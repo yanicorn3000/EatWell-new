@@ -1,5 +1,5 @@
-@use "src/utils.scss" as *;
-@import "src/globals.scss";
+@use "../../../utils.scss" as *;
+@import "../../../globals.scss";
 
 .example {
   display: flex;
