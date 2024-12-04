@@ -3,12 +3,12 @@ import IndexPage from "./pages/index";
 import LoginPage from "./pages/login/LoginPage";
 import RegisterPage from "./pages/login/RegisterPage";
 import { Routes, Route, Navigate } from "react-router-dom";
-import UserPulpit from "./pages/UserPulpit";
+import UserPulpit from "./pages/pulpit/UserPulpit";
 import { useUser } from "../utils/appContext";
-import ProductItem from "./pages/ProductItem";
-import SimilarProducts from "./pages/SimilarProducts";
-import UserData from "./pages/UserData";
-import UserProducts from "./pages/UserProducts";
+import ProductItem from "./pages/item/ProductItem";
+import SimilarProducts from "./pages/similar/SimilarProducts";
+import UserData from "./pages/userData/UserData";
+import UserProducts from "./pages/userProducts/UserProducts";
 
 const RoutesComponent = () => {
   const user = useUser();

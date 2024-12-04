@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useProduct, useCategoryProducts } from "../../utils";
-import List from "../../components/Product/list/List";
-import Page from "../../components/App/page/Page";
+import { useProduct, useCategoryProducts } from "../../../utils";
+import List from "../../../components/Product/list/List";
+import Page from "../../../components/App/page/Page";
 import styles from "./SimilarProducts.module.scss";
 import { Link } from "react-router-dom";
 

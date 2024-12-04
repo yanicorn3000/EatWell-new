@@ -1,12 +1,10 @@
 import {
   useQuery,
-  useMutation,
   useQueryClient,
   QueryClient,
   QueryClientProvider,
   QueryCache,
 } from "@tanstack/react-query";
-import { data } from "./sample";
 
 export const fetchFromAPI = async (url, options = {}) => {
   try {
@@ -22,9 +20,9 @@ export const fetchFromAPI = async (url, options = {}) => {
     const response = await req.json();
 
     return response;
-  } catch (e) {
-    console.error(e);
-    throw e;
+  } catch (err) {
+    console.error(err);
+    throw err;
   }
 };
 
@@ -69,13 +67,12 @@ export const useSearchProducts = (query) => {
         }
 
         products = response.products;
-      } catch (e) {
-        console.log(e);
-        throw e;
+      } catch (err) {
+        console.log(err);
+        throw err;
       }
 
       return products.map(mapProduct).filter((product) => product.product_name);
-      //   return data.products;
     },
   });
 };

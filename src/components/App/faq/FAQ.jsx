@@ -1,13 +1,6 @@
 import styles from "./FAQ.module.scss";
-import { useState } from "react";
 
 const FAQ = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const switchCheck = () => {
-    setIsChecked(true);
-  };
-
   const tabs = [
     {
       id: 1,
@@ -49,7 +42,6 @@ const FAQ = () => {
                 className={styles.FAQcheckbox}
                 type="checkbox"
                 id={`faq__tab-${id}`}
-                onChange={switchCheck}
               />
               <label htmlFor={`faq__tab-${id}`}>{label}</label>
               <div className={styles.content}>

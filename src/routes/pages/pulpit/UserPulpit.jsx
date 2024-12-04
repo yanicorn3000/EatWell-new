@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Search from "./Search";
+import Search from "../search/Search";
 import styles from "./UserPulpit.module.scss";
-import ProductList from "./ProductList";
+import ProductList from "../ProductList";
 
 const UserPulpit = () => {
   const [searchTerm, setSearchTerm] = useState("");

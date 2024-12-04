@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./UserData.module.scss";
-import CalculatorForm from "../../components/App/calculator/CalculatorForm";
-import { useUser } from "../../utils";
+import CalculatorForm from "../../../components/App/calculator/CalculatorForm";
+import { useUser } from "../../../utils";
 import clsx from "clsx";
 
 const wordRegex = /^[a-zA-Z]+$/;
@@ -58,8 +58,6 @@ const UserData = () => {
     user.update(basicData);
     alert("Twoje dane zostały zapisane ✅");
   };
-
-  console.log(errors);
 
   return (
     <section className={styles.data}>

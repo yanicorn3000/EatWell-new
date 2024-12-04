@@ -1,7 +1,7 @@
 import React from "react";
-import List from "../../components/Product/list/List";
+import List from "../../../components/Product/list/List";
 import styles from "./UserProducts.module.scss";
-import { useUserProducts } from "../../utils";
+import { useUserProducts } from "../../../utils";
 
 const UserProducts = () => {
   const userProducts = useUserProducts();

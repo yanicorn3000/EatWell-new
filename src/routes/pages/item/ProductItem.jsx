@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./ProductItem.module.scss";
 import { Link, useParams } from "react-router-dom";
-import { useProduct } from "../../utils";
-import Card from "../../components/Product/card/Card";
-import { formatProductData } from "../../utils/product";
-import Page from "../../components/App/page/Page";
+import { useProduct } from "../../../utils";
+import Card from "../../../components/Product/card/Card";
+import { formatProductData } from "../../../utils/product";
+import Page from "../../../components/App/page/Page";
 
 const ProductItem = () => {
   let { id } = useParams();
