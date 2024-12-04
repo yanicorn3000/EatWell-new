@@ -11,7 +11,11 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         api: "modern-compiler",
+        silenceDeprecations: true,
       },
     },
+  },
+  build: {
+    outDir: "../dist",
   },
 });
