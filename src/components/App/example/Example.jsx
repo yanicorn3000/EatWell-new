@@ -46,7 +46,7 @@ const Example = () => {
 
       <Card
         product={{
-          picture: "/assets/almonds.png",
+          picture: "assets/almonds.png",
           name: "Migdały",
           score: "A",
           ingredients: "Kalifornijskie migdały całe, łuskane",
