@@ -3,7 +3,7 @@ import Hero from "../../components/App/hero/Hero";
 import Features from "../../components/App/features/Feautures";
 import Example from "../../components/App/example/Example";
 import Calculator from "../../components/App/calculator/Calculator";
-import FAQ from "../../components/App/FAQ/FAQ";
+import FAQ from "../../components/App/faq/FAQ";
 
 const IndexPage = () => {
   return (
