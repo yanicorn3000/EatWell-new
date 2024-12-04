@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: config.mode === "production" ? "/eatwell" : "/",
+  base: config.mode === "production" ? "/EatWell-new" : "/",
   root: "src",
   server: {
     port: 3000,
