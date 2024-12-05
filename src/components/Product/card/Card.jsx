@@ -121,7 +121,8 @@ const Card = (props) => {
                     className={clsx(styles.icon, {
                       [styles.up]: tag.type === "high",
                       [styles.down]: tag.type === "low",
-                      [styles.empty]: tag.value === undefined,
+                      [styles.empty]:
+                        tag.value === undefined || tag.value === "- g",
                     })}
                   ></span>
                   {tag.value === undefined || tag.value === "- g" ? (
