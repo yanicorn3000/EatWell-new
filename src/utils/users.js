@@ -10,3 +10,10 @@ export const updateUser = (id, newData) => {
     body: newData,
   });
 };
+
+export const createUser = (user) => {
+  return fetchFromAPI(`http://localhost:3001/users`, {
+    method: "POST",
+    body: user,
+  });
+};

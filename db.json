@@ -15,6 +15,27 @@
       "id": "2",
       "email": "test2@test2.pl",
       "password": "test"
+    },
+    {
+      "id": "a9f1",
+      "email": "ssss@gmail.com",
+      "password": "1",
+      "name": "Snape",
+      "gender": "male",
+      "age": "68",
+      "weight": "50",
+      "height": "178",
+      "activity": "2"
+    },
+    {
+      "id": "404e",
+      "email": "ss@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2ab0",
+      "email": "ss3@gmail.com",
+      "password": "123"
     }
   ]
 }

@@ -9,7 +9,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
   const user = useUser();
-  // const navigate = useNavigate();
 
   const validateEmailField = (value) => {
     if (!value) {
@@ -40,7 +39,6 @@ const LoginPage = () => {
           email: "Niepoprawny login lub hasło",
         });
       });
-      // navigate("/pulpit");
     }
   };
 

@@ -3,12 +3,15 @@ import { useState } from "react";
 import { Link } from "../../../components/App/link/Link";
 import { clsx } from "clsx";
 import styles from "./LoginPage.module.scss";
+import { createUser, getUsers } from "../../../utils/users";
+import { useUser } from "../../../utils";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const user = useUser();
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -18,6 +21,10 @@ const RegisterPage = () => {
   const validateEmailField = (value) => {
     if (!value) {
       return "Wpisz adres e-mail";
+    }
+
+    if (!emailRegex.test(value)) {
+      return "Wpisz poprawny adres e-mail";
     }
   };
 
@@ -33,7 +40,7 @@ const RegisterPage = () => {
     }
   };
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = { ...errors };
 
@@ -42,6 +49,29 @@ const RegisterPage = () => {
     newErrors.passwordRepeat = validatePasswordRepeat(passwordRepeat);
 
     setErrors(newErrors);
+    if (Object.values(newErrors).filter(Boolean).length === 0) {
+      getUsers()
+        .then((users) => {
+          const existingUser = users.find((u) => u.email === email);
+
+          if (existingUser) {
+            throw new Error("User with email already exists");
+          }
+
+          createUser({
+            email,
+            password,
+          }).then(({ email, password }) => {
+            user.login(email, password);
+          });
+        })
+        .catch(() => {
+          setErrors({
+            ...newErrors,
+            email: "Taki uzytkownik juz istnieje",
+          });
+        });
+    }
     console.log(email, password, passwordRepeat, { ...errors });
   };
 
@@ -132,7 +162,7 @@ const RegisterPage = () => {
         <button
           type="submit"
           className={styles.loginButton}
-          onClick={handleLogin}
+          onClick={handleSubmit}
         >
           Załóz konto
         </button>

@@ -22,6 +22,12 @@ const RoutesComponent = () => {
           user.isLoggedIn ? () => <Navigate to="/pulpit" /> : LoginPage
         }
       />
+      <Route
+        path="/register"
+        Component={
+          user.isLoggedIn ? () => <Navigate to="/pulpit" /> : RegisterPage
+        }
+      />
       <Route path="/register" Component={RegisterPage} />
       <Route path="/pulpit" Component={UserPulpit} />
       <Route path="/product/:id" Component={ProductItem} />
